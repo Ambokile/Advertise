@@ -20,6 +20,49 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/processor.js" ></script>
+    <script type="text/javascript">
+        function log_in(){
+	 var user_name = document.querySelector("#user_name").value;
+	  var password = document.querySelector("#password").value;
+	   
+	   if(user_name == "" || user_name == null){
+	     alert("user_name field is empty");
+		 return false;
+		 
+	  }
+      if(password == "" || password == null){
+	       alert("password field is empty");
+		   return false;
+	  }
+	  
+	  
+	   var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+		}
+
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		 var id = xmlhttp.responseText.search("pass_in");
+		   if(id != -1){
+			       user_name = ""; password = "";
+			       window.location = "main.html";
+			   }
+		   else
+		        alert("failed to log in, please check if every thing is correct and  try again");
+                                        };
+xmlhttp.open("GET","http://fishpond.site88.net/log_in.php?user="+user_name+"&pass="+password,true);
+xmlhttp.send();
+
+
+		return false;	
+	}
+	
+
+    </script>
   </head>
   <body ng-app="starter">
 
@@ -32,12 +75,12 @@
       
          <form action="" method="">
            <label class="item item-input">
-             <input type="text" placeholder="jina la mtumiaji" />
+             <input type="text" placeholder="jina la mtumiaji" id="user_name" />
            </label>
            <label class="item item-input">
-             <input type="password" placeholder="Nywila ya mtumiaji" />
+             <input type="password" placeholder="Nywila ya mtumiaji" id="password" />
            </label>
-            <button class="button button-full button-positive" onClick="">Ingia</button>
+            <button class="button button-full button-positive" onClick="log_in()">Ingia</button>
             </form>  
             <div style=" width:100%; text-align:left;">
                 <span style=" margin-left:5%;"><a href="" style="font-size:12px; text-decoration:none">- register</a>

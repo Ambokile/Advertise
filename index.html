@@ -50,9 +50,10 @@
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       
-			       user_name = ""; password = "";
+			       document.querySelector("#user_name").value =  "";
+					document.querySelector("#password").value = "";
+				   
 			       window.location = "main.html";
-				    grap_info();
 			   }
 		   else
 		        alert("failed to log in, please check if every thing is correct and  try again");

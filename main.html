@@ -21,19 +21,113 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="starter">
+  <style type="text/css">
+       .slider {
+            height: auto;
+                   }
+       .slider-slide {
+                padding-top: 80px;
+                color: #000;
+                background-color: #fff;
+                text-align: center;
 
-    <ion-pane>
-      <ion-header-bar class="bar-positive">
-        <h1 class="title" style="margin-left:0%; font-weight:bold">Advertisement</h1>
-        <button class="button button-icon icon ion-navicon"></button>
-      </ion-header-bar>
-      <ion-content>
-     
-      </ion-content>
-      <ion-footer-bar align-title="left" class="bar-light">
-      </ion-footer-bar>
-    </ion-pane>
+          font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+          font-weight: 300;
+}
+  </style>
+ <body ng-app="ionicApp" animation="slide-left-right-ios7">
+
+    <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+    </ion-nav-bar>
+    
+    <ion-nav-view><ion-content></ion-content></ion-nav-view>
+
+
+    <script id="intro.html" type="text/ng-template"> 
+      <ion-view title= "Matangazo">
+	  <ion-scroll zooming="true" direction="y" style=" height:98%;">
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+		
+
+          <ion-slide>	  
+           <div id ="">
+		      A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.  
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.  
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.  
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.  
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.
+ A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
+
+The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
+
+Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons.  
+
+		     </div>
+			 
+          </ion-slide>
+		  
+		  
+		 <ion-slide>
+		 </ion-slide>
+		 
+        </ion-slide-box>
+		</ion-scroll>
+      </ion-view>
+    </script>
     
   </body>
 </html>

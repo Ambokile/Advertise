@@ -49,9 +49,10 @@
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
-			        grap_info(); getUser();
+			       
 			       user_name = ""; password = "";
 			       window.location = "main.html";
+				    grap_info();
 			   }
 		   else
 		        alert("failed to log in, please check if every thing is correct and  try again");
@@ -86,6 +87,8 @@ xmlhttp.send();
            </label>
             <button class="button button-full button-positive" onClick="log_in()">Ingia</button>
             </form>  
+        
+</div>
             <div style=" width:100%; text-align:left;">
                 <span style=" margin-left:5%;"><a href="" style="font-size:12px; text-decoration:none">- fungua akaunti</a>
             </div>

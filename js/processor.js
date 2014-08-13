@@ -16,7 +16,7 @@
 xmlhttp.open("GET","http://fishpond.site88.net/get_info.php?str="+str,true);
 xmlhttp.send();
    }
-     setInterval(grap_info,5);
+
 	 
     function getUser(){
 	    var xmlhttp;
@@ -36,6 +36,6 @@ xmlhttp.open("GET","http://fishpond.site88.net/getUser.php",true);
 xmlhttp.send();
 
 	}
-	    setTimeout(getUser,5);
+	 
 		
 

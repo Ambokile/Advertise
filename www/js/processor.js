@@ -1,41 +1,41 @@
 // JavaScript Document
-function log_in(){
-	alert();
-	 var user_name = document.getElementById("username_2").value;
-	  var password = document.getElementById("password_2").value;
-	  
-	   if(user_name == "" || user_name == null){
-	     alert("user name field is empty");
-		 return false;
-		 
-	  }
-      if(password == "" || password == null){
-	       alert("password field is empty");
-		   return false;
-	  }
-	  
-	  
-	   var xmlhttp;
+window.onload = function(){
+  
+   function grap_info(){
+   var str = 'A';
+	 var xmlhttp;
 	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();
-		}
-
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		document.querySelector("#info").innerHTML = xmlhttp.responseText;
+	 } 
+			 
+			                       };
+xmlhttp.open("GET","http://fishpond.site88.net/get_info.php?str="+str,true);
+xmlhttp.send();
+   }
+     setInterval(grap_info,5);
+    function getUser(){
+	    var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		 var id = xmlhttp.responseText.search("pass_in");
-		   if(id != -1){
-			       user_name = ""; password = "";
-			       window.location = "publish.html";
-			   }
-		   else
-		        alert("failed to log in");
+		
+		 document.querySelector("#from").value = xmlhttp.responseText;
+		 
+		 }
                                         };
-xmlhttp.open("GET","log_in.php?user="+user_name+"&pass="+password,true);
+xmlhttp.open("GET","http://fishpond.site88.net/getUser.php",true);
 xmlhttp.send();
 
-
-		return false;	
 	}
-	
+	    setTimeout(getUser,5);
+		
+}

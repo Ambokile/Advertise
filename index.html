@@ -41,8 +41,9 @@
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
 		}
-
+     else{
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+		
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
@@ -53,6 +54,7 @@
 			   }
 		   else
 		        alert("failed to log in, please check if every thing is correct and  try again");
+	 }
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/log_in.php?user="+user_name+"&pass="+password,true);
 xmlhttp.send();

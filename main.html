@@ -44,11 +44,11 @@ function img(){
        reader.onload = function (e) {
 		    var element = document.createElement("img"); 
 		   element.src = e.target.result;
-		   element.id = "img";
+		   element.id = "ava_img";
 		    element.style.width = 200 + "px";
 			element.style.height = 200 + "px";
-			
-         document.querySelector("#input_file").appendChild(element);
+		var x = document.querySelector("#ava_img");
+         document.querySelector("#input_file").replaceChild(element,x);
        };
        reader.readAsDataURL(files[0]);
 		 
@@ -72,7 +72,7 @@ function img(){
 
           <ion-slide>	  
            <div id ="info" style = "padding:2%;">
-		   hsvshfsvsvfs
+		  
 		     </div>
 			 
           </ion-slide>
@@ -86,7 +86,7 @@ function img(){
                              </label>
                              <label class="item item-input">
                                      <button class="button icon ion-gear-a" onclick = "upload()"></button>
-									 <div style = " margin-left:4%;" id = "input_file"></div>  
+									 <div style = " margin-left:4%;" id = "input_file"><img src = "img/c.jpg" width= "200px" heigth= "200px" id = "ava_img" /></div>  
                              </label>
                              <label class="item item-input">
                              <textarea placeholder="Comments"></textarea>

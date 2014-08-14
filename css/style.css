@@ -1,6 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .slider {
             height: auto;
+			visibility:hidden;
                    }
 				   
        .slider-slide {

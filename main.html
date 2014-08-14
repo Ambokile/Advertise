@@ -21,6 +21,39 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/processor.js"></script>
+    <script>
+        function upload(){
+			
+	       var  element_1 = document.querySelector("#input_file");
+		   var element_2 = document.createElement("input"); 
+		   element_2.type = "file";
+		   element_2.id = "upload";
+		   element_2.style.visibility = "hidden";
+		 // element_2.multiple = "multiple";
+		   document.body.appendChild(element_2);
+		   document.querySelector("#upload").click();
+		   document.querySelector("#upload").onchange = img;
+		   return false; 
+	 }
+function img(){
+	      
+			var files = this.files;
+			
+       var reader = new FileReader();
+       var name = this.value;
+       reader.onload = function (e) {
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "img";
+		    element.style.width = 200 + "px";
+			element.style.height = 200 + "px";
+			
+         document.querySelector("#input_file").appendChild(element);
+       };
+       reader.readAsDataURL(files[0]);
+		 
+	}	
+    </script>
   </head>
   
  <body ng-app="ionicApp" animation="slide-left-right-ios7">
@@ -33,12 +66,13 @@
 
     <script id="intro.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
-	  <ion-scroll zooming="true" direction="y" style=" height:98%;">
+	  <ion-scroll zooming="false" direction="y" style=" height:98%;">
         <ion-slide-box on-slide-changed="slideChanged(index)">
 		
 
           <ion-slide>	  
            <div id ="info" style = "padding:2%;">
+		   hsvshfsvsvfs
 		     </div>
 			 
           </ion-slide>
@@ -47,15 +81,22 @@
 		 <ion-slide>
 		
 		     <div id ="">
-		      A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
-
-The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
-
-Try playing with the demo on the left. Youll notice you can drag and swipe between different pages of the tutorial (it also works with the mouse for testing). You can also switch pages using header buttons and skip the entire tutorial or complete it with the header buttons. 
- A popular pattern for mobile apps is the initial-load user tutorial. This is a mutli-screen tutorial that shows when the user first opens the app, and helps them learn how to use the app.
-
-The tutorial uses a slide box that the user can swipe through as they please. The point is that you are introducing them to the app and trying to give them a running start when your main interface loads.
-
+			      <div class="list">
+                             
+                             </label>
+                             <label class="item item-input">
+                                     <button class="button icon ion-gear-a" onclick = "upload()"></button>
+									 <div style = " margin-left:4%;" id = "input_file"></div>  
+                             </label>
+                             <label class="item item-input">
+                             <textarea placeholder="Comments"></textarea>
+                              </label>
+							   <label class="item item-input" style= "padding:2%;">
+							  <button class="button button-full button-positive">Tangaza</button>
+							   </label>
+                   </div>
+			      
+		     </div>
 		 </ion-slide>
 		 
         </ion-slide-box>

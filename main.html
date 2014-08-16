@@ -66,15 +66,16 @@ function img(){
 
     <script id="intro.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
-	  <ion-scroll zooming="false" direction="y" style=" height:98%;">
+	 
         <ion-slide-box on-slide-changed="slideChanged(index)">
 		
 
           <ion-slide>	  
+		   <ion-scroll zooming="false" direction="y" style=" height:98%;">
            <div id ="info" style = "padding:2%;">
-		  
+		
 		     </div>
-			 
+			 </ion-scroll>
           </ion-slide>
 		  
 		  
@@ -100,7 +101,7 @@ function img(){
 		 </ion-slide>
 		 
         </ion-slide-box>
-		</ion-scroll>
+		
       </ion-view>
     </script>
     

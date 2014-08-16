@@ -47,3 +47,4 @@ application.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDeleg
     $scope.slideIndex = index;
   };
 })
+

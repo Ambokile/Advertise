@@ -66,21 +66,21 @@ function img(){
 
     <script id="intro.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
-	  
-        <ion-slide-box on-slide-changed="slideChanged(index)">
-		<ion-scroll zooming="false" direction="y" style=" height:98%;" has-bouncing = "false" paging = "false">
+	  <ion-scroll zooming="false" direction="y" style=" height:98%;" has-bouncing = "false" paging = "false">
 
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+		
           <ion-slide>	  
            <div id ="info" style = "padding:2%;">
 		  
 		     </div>
 			 
           </ion-slide>
-		  </ion-scroll>
+		 
 		  
 		 <ion-slide >
 		    
-		     <div id ="" scroll="false">
+		     <ion-content scroll="false">
 			      <div class="list list-inset" style = "margin-top:2%;">
                              
                              </label>
@@ -99,12 +99,12 @@ function img(){
 							   </label>
                    </div>
 			      
-		     </div>
+		     </ion-content>
 		
 		 </ion-slide>
 		 
         </ion-slide-box>
-		
+		 </ion-scroll>
       </ion-view>
     </script>
     

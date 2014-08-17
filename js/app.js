@@ -48,3 +48,5 @@ application.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDeleg
   };
 })
 
+  angular.module('account', ['ionic'])
+

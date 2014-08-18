@@ -35,6 +35,12 @@
         destinationType=navigator.camera.DestinationType;
     }
 
+function capturePhotoEdit() {
+      
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
+    }
+
 
 function capturePhoto(){
       
@@ -116,7 +122,7 @@ function onFail(message) {
                    </div>
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
                    <button class="button button-icon icon ion-android-send"></button>
-                               <button class="button button-icon icon ion-android-camera" onClick="capturePhoto();"></button>
+                               <button class="button button-icon icon ion-android-camera" onClick="capturePhotoEdit();"></button>
                     </div>
 			      
 		    

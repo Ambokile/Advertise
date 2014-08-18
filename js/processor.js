@@ -38,7 +38,39 @@ xmlhttp.send();
 
 	}
  }
- 
+ <script>
+        function upload(){
+			
+	       var  element_1 = document.querySelector("#input_file");
+		   var element_2 = document.createElement("input"); 
+		   element_2.type = "file";
+		   element_2.id = "upload";
+		   element_2.style.visibility = "hidden";
+		 // element_2.multiple = "multiple";
+		   document.body.appendChild(element_2);
+		   document.querySelector("#upload").click();
+		   document.querySelector("#upload").onchange = img;
+		   return false; 
+	 }
+function img(){
+	      
+			var files = this.files;
+			
+       var reader = new FileReader();
+       var name = this.value;
+       reader.onload = function (e) {
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 200 + "px";
+			element.style.height = 200 + "px";
+		var x = document.querySelector("#ava_img");
+         document.querySelector("#input_file").replaceChild(element,x);
+       };
+       reader.readAsDataURL(files[0]);
+		 
+	}	
+    
  
 		
 

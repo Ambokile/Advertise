@@ -17,6 +17,9 @@ app.run(function($ionicPlatform) {
     }
   });
 })
+ 
+   var app = angular.module('add', ['ionic'])
+   
 var application = angular.module('ionicApp', ['ionic'])
 
 application.config(function($stateProvider, $urlRouterProvider) {

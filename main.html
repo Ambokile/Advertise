@@ -65,9 +65,10 @@ function img(){
     </style>
   </head>
   
- <body ng-app="ionicApp" animation="slide-left-right-ios7">
+ <body ng-app="ionicApp" animation="slide-left-right-ios7" >
 
     <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+       <button class="button button-icon icon ion-navicon" ng-click="openPopover($event)"></button>
     </ion-nav-bar>
     
     <ion-nav-view><ion-content></ion-content></ion-nav-view>
@@ -117,5 +118,16 @@ function img(){
       </ion-view>
     </script>
     
+    <script id="my-popover.html" type="text/ng-template">
+      <ion-popover-view>
+            <ion-header-bar>
+               <h1 class="title">My Popover Title</h1>
+            </ion-header-bar>
+        <ion-content>
+           Hello!
+       </ion-content>
+      </ion-popover-view>
+   </script>
+
   </body>
 </html>

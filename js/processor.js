@@ -38,9 +38,8 @@ xmlhttp.send();
 
 	}
  }
- <script>
         function upload(){
-			
+		
 	       var  element_1 = document.querySelector("#input_file");
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";

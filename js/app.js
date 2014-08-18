@@ -17,6 +17,18 @@ app.run(function($ionicPlatform) {
     }
   });
 })
+app.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+.state('index',{
+	  url:'/',
+	  templateUrl : 'index.html'
+	})
+.state('fungua_account',{
+	  url:'/fungua_account',
+	  templateUrl : 'fungua_account.html'
+	});
+})
 
 var application = angular.module('ionicApp', ['ionic'])
 

@@ -34,7 +34,7 @@
         options.filter=""; 
 		options.multiple=true;
         var fields = ["*"];
-         navigator.contacts.find(fields,alert(),contactError, options);
+         navigator.contacts.find(fields,contactSuccess,contactError, options);
     }
  function contactSuccess(contacts) {
 	   alert();

@@ -26,31 +26,25 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
-
-        var contactList = new ContactFindOptions(); 
-        contactList.filter=""; 
-        contactList.multiple=true;
-        var fields = ["*"];  //"*" will return all contact fields
-        navigator.contacts.find(fields,  getContactFields, contactList );
+        
+        var options = new ContactFindOptions();
+        options.filter=""; 
+        var fields = ["displayName", "name"];
+        navigator.contacts.find(fields, onSuccess, onError, options);
     }
+
 
    
-   function getContactFields(contacts) {
-	   alert();
-         for (var i=0; i<contacts.length; i++)
-        {
-               alert(contacts.length);
-               alert("Name:" + contacts[i].displayName + "\n"+
-                         "Birthday:"+ contacts[i].birthday)
-                        
-for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                               alert("Type: " + contacts[i].phoneNumbers[j].type + "\n" + 
-                                         "Value: "  + contacts[i].phoneNumbers[j].value );
-                        }
- 
-    
- }  
+   function onSuccess(contacts) {
+        for (var i=0; i<contacts.length; i++) {
+            console.log("Display Name = " + contacts[i].displayName);
+        }
     }
+
+    function onError(contactError) {
+        alert('onError!');
+    }
+
 
     </script>
 

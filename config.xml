@@ -11,7 +11,7 @@ second app		</description>
 Ambokile Kifukwe
 		</author>
 		<preference name="phonegap-version" value="3.5.0" />
-		<preference name="orientation" value="default" />
+		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
 		<preference name="target-device" value="universal" />
 		<preference name="webviewbounce" value="true" />

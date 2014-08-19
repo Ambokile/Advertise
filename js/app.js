@@ -26,11 +26,29 @@ application.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
+var app_1 =  angular.module('home', ['ionic'])
+
+app_1.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+  .state('home', {
+    url: '/',
+    templateUrl: 'home.html',
+   // controller: 'HomeCtrl'
+  })
+  
+  $urlRouterProvider.otherwise("/");
+
+})
+app_1.controller('HomeCtrl', function($scope) {
+  console.log('HomeCtrl');
+});
+
+
 application.controller('InfoCtrl', function($scope) {
   console.log('InfoCtrl');
 });
   angular.module('account', ['ionic'])
   angular.module('add_user', ['ionic'])
    angular.module('register', ['ionic'])
-   angular.module('home', ['ionic'])
 

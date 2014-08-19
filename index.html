@@ -68,39 +68,43 @@ xmlhttp.send();
 	
 
     </script>
+    <script src="js/processor.js"></script>
   </head>
   <body ng-app="home">
-
-    
-    <ion-pane>
-      <ion-header-bar class="bar bar-positive">
-        <h1 class="title" style="font-weight:bold;">Seine</h1>
-     </ion-header-bar>
-      <ion-content>
      
+     
+      
+    <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+    </ion-nav-bar>
+    
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+
+    <script id="home.html" type="text/ng-template"> 
+      <ion-view title= "Matangazo">
+	   <div class="list list-inset" style="margin-top:30%;">
+      
          <form action="" method="">
-             <div class="list list-inset">
-                      <label class="item item-input">
-                       <i class="icon ion-android-social-user"></i>
-                          <input type="text" placeholder="Jina kamili">
-                      </label>
-                      <label class="item item-input">
-                         <i class="icon ion-briefcase"></i>
-                         <input type="password" placeholder="Nywila">
-                      </label>
-                      <label class="item item-input">
-                              <i class="icon ion-briefcase"></i>
-                              <input type="password" placeholder="Rudia Nywila">
-                      </label>
-                      <label class="item item-input" style="border-left-style:none; border-right-style:none;">
-                            <div style=""><img src="img/default.jpg" width="124" height="124" /><span style=" float:right; text-indent:5%; font-size:12px;">weka picha yako hapa</span></div>
-                      </label>
-  <button class="button button-block button-balanced" onClick="register()">Jisajili</button>
-</div>
-    
+           <label class="item item-input">
+           <i class="icon ion-android-social-user"></i>
+              <input type="text" placeholder="jina la mtumiaji" id="user_name" />
+           </label>
+           <label class="item item-input">
+            <i class="icon ion-android-social-user"></i>
+             <input type="password" placeholder="Nywila ya mtumiaji" id="password" />
+             
+           </label>
+            <button class="button button-full button-positive" onClick="log_in()">Ingia</button>
             </form>          
-    
-      </ion-content>
-    </ion-pane>
+     </div>
+            <div style=" width:100%; text-align:left;">
+               <span style=" margin-left:5%;"><a href="" onClick="window.open('register.html','_blank','location=no');"  style="font-size:12px; text-decoration:none">- fungua akaunti</a>
+            </div>
+            <div style=" width:100%; text-align:left;">
+                <span style="margin-left:5%;"><a href="" style="font-size:12px; text-decoration:none">- nikumbushe nywila</a></span>
+            </div>
+      </div>
+      </ion-view>
+    </script>
   </body>
 </html>

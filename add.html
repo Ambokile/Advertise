@@ -35,13 +35,6 @@
         destinationType=navigator.camera.DestinationType;
     }
 
-function capturePhotoEdit() {
-      
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-        destinationType: destinationType.DATA_URL });
-    }
-
-
 function capturePhoto(){
       
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
@@ -63,7 +56,7 @@ function onFail(message) {
   
 
 
-          function upload(){
+  function upload(){
 		  
 	      var  element_1 = document.querySelector("#input_file");
 		   var element_2 = document.createElement("input"); 
@@ -100,13 +93,15 @@ function advertise(){
 		  
 		
 	  var data = new FormData();
-	 if(msg == "" || msg == null){
-		      alert( "please write about product");
-		}
-	else if(price == "" || price == null){
+	 if(price == "" || price == null){
 		   
 			alert("please write price of the product");
 		}
+		
+	 else if(msg == "" || msg == null){
+		      alert( "please write about product");
+		}
+	
 
 	else{ 
 		 data.append('product_img',product_img.files[0]);
@@ -175,7 +170,7 @@ function advertise(){
                    </div>
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
                    <button class="button button-icon icon ion-android-send" onClick="advertise();"></button>
-                               <button class="button button-icon icon ion-android-camera" onClick="capturePhotoEdit();"></button>
+                               <button class="button button-icon icon ion-android-camera" onClick="capturePhoto();"></button>
                     </div>
 			      
 		    

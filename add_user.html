@@ -36,7 +36,8 @@
    
     function onSuccess(contacts) {
         for (var i=0; i<contacts.length; i++) {
-            console.log("Display Name = " + contacts[i].displayName);
+			var x = document.getElementById("contact");
+            x.innerHTML = "Display Name = " + contacts[i].displayName;
         }
     }
 
@@ -58,8 +59,8 @@
         <h1 class="title" style="font-weight:bold;">Available contacts</h1>
      </ion-header-bar>
       <ion-content>
-    <div>
-     nbcbcbc</div>
+    <div id="contact">
+     </div>
       </ion-content>
   </body>
 </html>

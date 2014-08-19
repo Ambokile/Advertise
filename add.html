@@ -26,9 +26,9 @@
 	var pictureSource;   
     var destinationType; 
 
-    
+function onload(){  
     document.addEventListener("deviceready",onDeviceReady,false);
-
+                      }
    
     function onDeviceReady() {
 		alert();
@@ -58,7 +58,6 @@ function onFail(message) {
 
 
   function upload(){
-		  alert();
 	      var  element_1 = document.querySelector("#input_file");
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";
@@ -146,7 +145,7 @@ function advertise(){
 	} 
     </script>
 	</head>
-  <body ng-app="add">
+  <body ng-app="add" onLoad="onload();">
       <ion-header-bar class = "bar bar-positive">
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>

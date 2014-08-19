@@ -26,19 +26,18 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
-        alert();
         var options = new ContactFindOptions();
-        options.filter=""; 
-        var fields = ["displayName", "name"];
+        options.filter="";
+		options.multiple=true; 
+        var fields = ["*"];
         navigator.contacts.find(fields, onSuccess, onError, options);
     }
 
    
     function onSuccess(contacts) {
+		alert();
         for (var i=0; i<contacts.length; i++) {
 			alert(contacts[i].displayName);
-			var x = document.getElementById("contact");
-            x.innerHTML = "Display Name = " + contacts[i].displayName;
         }
     }
 

@@ -28,7 +28,7 @@
     function onDeviceReady() {
        
         var options = new ContactFindOptions();
-        options.filter="Doreen"; 
+        options.filter=""; 
         var fields = ["displayName", "name"];
         navigator.contacts.find(fields, onSuccess, onError, options);
     }
@@ -36,6 +36,7 @@
    
     function onSuccess(contacts) {
         for (var i=0; i<contacts.length; i++) {
+			alert(contacts[i].displayName);
 			var x = document.getElementById("contact");
             x.innerHTML = "Display Name = " + contacts[i].displayName;
         }

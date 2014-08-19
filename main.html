@@ -27,7 +27,7 @@
 
     <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
     
-       <button class="button button-icon icon ion-compose"  onClick="window.open('add.html','_black','location=no')"></button>
+       <button class="button button-icon icon ion-compose"  onClick=" window.ref = window.open('add.html','_black','location=no')"></button>
        
     </ion-nav-bar>
     
@@ -37,7 +37,7 @@
     <script id="info.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
 	  <ion-nav-buttons side="right">
-	   <button class="button button-icon icon ion-person-add"  onClick="document.location.href ='add_user.html'"></button>
+	   <button class="button button-icon icon ion-person-add"  onClick="window.ref2 = window.open('add_user.html','_black','location=no')"></button>
     </ion-nav-buttons>
 	  <ion-scroll zooming="false" direction="y" style=" height:98%;" has-bouncing = "false" paging = "false">
 

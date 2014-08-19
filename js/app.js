@@ -44,4 +44,5 @@ application.controller('InfoCtrl', function($scope) {
 });
   angular.module('account', ['ionic'])
   angular.module('add_user', ['ionic'])
+   angular.module('register', ['ionic'])
 

@@ -28,11 +28,15 @@
     function onDeviceReady() {
 		alert();
         var contactList = new ContactFindOptions(); 
+		alert();
         contactList.filter=""; 
+		alert();
         contactList.multiple=true;
-        var fields = ["*"];  //"*" will return all contact fields
+		alert();
+        var fields = ["*"]; 
+		alert(); //"*" will return all contact fields
         navigator.contacts.find(fields,  getContactFields, contactList );
-		alert()
+		alert();
     }
 
    

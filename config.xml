@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = ""
+		id        = "com.seine.seine"
 		versionCode=""
 		version   = "">
 		<name>seine</name>
@@ -10,8 +10,8 @@ second app		</description>
 		<author href="" email="ambokilekifukwe@gmail.com">
 Ambokile Kifukwe
 		</author>
-		<preference name="phonegap-version" value="3.4.0" />
-		<preference name="orientation" value="portrait" />
+		<preference name="phonegap-version" value="3.5.0" />
+		<preference name="orientation" value="default" />
 		<preference name="fullscreen" value="false" />
 		<preference name="target-device" value="universal" />
 		<preference name="webviewbounce" value="true" />
@@ -32,13 +32,13 @@ Ambokile Kifukwe
 		<preference name="SuppressesIncrementalRendering" value="false" />
 		<preference name="android-minSdkVersion" value="7" />
 		<preference name="android-installLocation" value="internalOnly" />
-		<preference name="SplashScreenDelay" value="7000" />
-		<preference name="ErrorUrl" value=""/>
+		<preference name="SplashScreenDelay" value="5000" />
+		<preference name="ErrorUrl" value="failed to load"/>
 		<preference name="BackgroundColor" value="0x0000ff"/>
 		<preference name="KeepRunning" value="true"/>
 		<preference name="DisallowOverscroll" value="false"/>
-		<preference name="LoadingDialog" value="seine open,wait for a moment..."/> 
-		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<preference name="LoadingDialog" value="seine ,wait......."/> 
+		<preference name="LoadUrlTimeoutValue" value="60000" />
 		<preference name="disable-cursor" value="false" />
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
@@ -51,7 +51,6 @@ Ambokile Kifukwe
 		<feature name="http://api.phonegap.com/1.0/media"/>
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<feature name="http://api.phonegap.com/1.0/notification"/>
-		<feature name="http://api.phonegap.com/1.0/device"/>
 		<gap:plugin name="org.apache.cordova.battery-status"  />
 		<gap:plugin name="org.apache.cordova.camera"  />
 		<gap:plugin name="org.apache.cordova.console"  />
@@ -72,7 +71,7 @@ Ambokile Kifukwe
 		<gap:plugin name="org.apache.cordova.vibration"  />
 		<icon src="img/icon.png" />
 		
-		<access /> <!-- a blank access tag denies access to all external resources. -->
+	     <access /> <!-- a blank access tag denies access to all external resources. -->
 <access origin="http://fishpond.site88.net" /> <!-- a wildcard access tag allows access to all external resource.-->
 
 <!--Otherwise, you can specify specific domains:-->

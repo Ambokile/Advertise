@@ -26,17 +26,12 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
-		alert();
+
         var contactList = new ContactFindOptions(); 
-		alert();
         contactList.filter=""; 
-		alert();
         contactList.multiple=true;
-		alert();
-        var fields = ["*"]; 
-		alert(); //"*" will return all contact fields
+        var fields = ["*"];  //"*" will return all contact fields
         navigator.contacts.find(fields,  getContactFields, contactList );
-		alert();
     }
 
    

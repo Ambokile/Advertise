@@ -24,40 +24,27 @@
     <script type="text/javascript" charset="utf-8">
 
    document.addEventListener("deviceready", onDeviceReady, false);
-  
-	
-	
-		   
-    function onDeviceReady() {
-     
-        var options = new ContactFindOptions();
-        options.filter=""; 
-		options.multiple=true;
-        var fields = ["*"];
-         navigator.contacts.find(
-    ['displayName', 'name','phoneNumbers'],
-    function(contacts){
-		alert();
-        var contact_name;
-        var contact_phone;
-        for( i = 0; i < contacts.length; i++) {
-            if(contacts[i].name.formatted != null && contacts[i].name.formatted != undefined ) {
-                contact_name = contacts[i].name.formatted;
-                contact_name = contact_name.replace(/'/g,"''");
-                if(contacts[i].phoneNumbers != null && contacts[i].phoneNumbers.length > 0 && contacts[i].phoneNumbers[0].value != null && contacts[i].phoneNumbers[0].value != undefined ) {
-                    console.log( contacts[i].phoneNumbers[0].value );
-                    contact_phone = contacts[i].phoneNumbers[0].value;
-                } else {
-                    console.log( "--No Number-" );
-                    contact_phone = "";
+
+           
+            function onDeviceReady() {
+              
+                var options = new ContactFindOptions();
+                options.filter = "";
+                var fields = ["displayName", "name"];
+                navigator.contacts.find(fields, onSuccess, onError, options);
+            }
+
+          
+            function onSuccess(contacts) {
+                for (var i = 0; i < contacts.length; i++) {
+                    console.log("Display Name = " + contacts[i].displayName);
                 }
             }
-        }
-    },function(error){
-        alert(error);
-    },{ filter:"", multiple:true }
-);
-    }
+
+          
+            function onError(contactError) {
+                alert('onError!');
+            }
 
     </script>
 

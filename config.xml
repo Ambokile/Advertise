@@ -49,15 +49,6 @@ Ambokile Kifukwe
 		<feature name="Contacts">
               <param name="ios-package" value="CDVContacts" />
         </feature>
-		<feature name="InAppBrowser">
-                   <param name="android-package" value="org.apache.cordova.InAppBrowser" />
-        </feature>
-		<feature name="InAppBrowser">
-                   <param name="ios-package" value="CDVInAppBrowser" />
-        </feature>
-		<feature name="InAppBrowser" />
-
-
 
 
 		<feature name="http://api.phonegap.com/1.0/battery"/>

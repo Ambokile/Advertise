@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic'])
+
 
    var app = angular.module('add', ['ionic'])
    
@@ -32,4 +32,5 @@ application.controller('InfoCtrl', function($scope) {
   angular.module('account', ['ionic'])
   angular.module('add_user', ['ionic'])
    angular.module('register', ['ionic'])
+   angular.module('home', ['ionic'])
 

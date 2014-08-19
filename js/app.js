@@ -25,30 +25,23 @@ var application = angular.module('ionicApp', ['ionic'])
 application.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-  .state('intro', {
+  .state('info', {
     url: '/',
-    templateUrl: 'intro.html',
-    controller: 'IntroCtrl'
+    templateUrl: 'info.html',
+    controller: 'InfoCtrl'
   })
-
+  .state('user', {
+    url: '/user',
+    templateUrl: 'add_user.html',
+    controller: 'UserCtrl'
+  })
   $urlRouterProvider.otherwise("/");
 
 })
 
-application.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
- 
-  $scope.next = function() {
-    $ionicSlideBoxDelegate.next();
-  };
-  $scope.previous = function() {
-    $ionicSlideBoxDelegate.previous();
-  };
-
-  // Called each time the slide changes
-  $scope.slideChanged = function(index) {
-    $scope.slideIndex = index;
-  };
-})
-
+application.controller('InfoCtrl', function($scope) {
+  console.log('InfoCtrl');
+});
   angular.module('account', ['ionic'])
+  angular.module('add_user', ['ionic'])
 

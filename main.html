@@ -31,13 +31,13 @@
        
     </ion-nav-bar>
     
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
 
 
-    <script id="intro.html" type="text/ng-template"> 
+    <script id="info.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
 	  <ion-nav-buttons side="right">
-	   <button class="button button-icon icon ion-person-add"  onClick=""></button>
+	   <button class="button button-icon icon ion-person-add"  onClick="document.location.href ='add_user.html'"></button>
     </ion-nav-buttons>
 	  <ion-scroll zooming="false" direction="y" style=" height:98%;" has-bouncing = "false" paging = "false">
 
@@ -52,7 +52,5 @@
 		 </ion-scroll>
       </ion-view>
     </script>
-    
-
   </body>
 </html>

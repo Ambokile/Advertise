@@ -25,18 +25,8 @@
 window.onload = function(){
     document.addEventListener("deviceready", onDeviceReady, false);
                }
-			   
-    function onDeviceReady() {
-        
-        var options = new ContactFindOptions();
-        options.filter=""; 
-		options.multiple=true;
-        var fields = ["displayName", "name"];
-        navigator.contacts.find(fields, onSuccess, onError, options);
-    }
-
-   
-   function onSuccess(contacts) {
+	
+	 function onSuccess(contacts) {
 	   alert();
         for (var i=0; i<contacts.length; i++) {
             console.log("Display Name = " + contacts[i].displayName);
@@ -47,6 +37,18 @@ window.onload = function(){
         alert('onError!');
     }
 
+		   
+    function onDeviceReady() {
+        
+        var options = new ContactFindOptions();
+        options.filter=""; 
+		options.multiple=true;
+        var fields = ["displayName", "name"];
+        navigator.contacts.find(fields, onSuccess, onError, options);
+    }
+
+   
+  
 
     </script>
 

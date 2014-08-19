@@ -22,29 +22,30 @@
     <script src="js/app.js"></script>
     <script src="js/processor.js"></script>
     <script type="text/javascript" charset="utf-8">
-
+window.onload = function(){
     document.addEventListener("deviceready", onDeviceReady, false);
-
+               }
+			   
     function onDeviceReady() {
         
         var options = new ContactFindOptions();
         options.filter=""; 
+		options.multiple=true;
         var fields = ["displayName", "name"];
-        navigator.contacts.find(fields, function onSuccess(contacts) {
+        navigator.contacts.find(fields, onSuccess, onError, options);
+    }
+
+   
+   function onSuccess(contacts) {
 	   alert();
         for (var i=0; i<contacts.length; i++) {
             console.log("Display Name = " + contacts[i].displayName);
         }
-    }, function onError(contactError) {
-        alert('onError!');
-    }, options);
     }
 
-
-   
-   
-
-    
+    function onError(contactError) {
+        alert('onError!');
+    }
 
 
     </script>

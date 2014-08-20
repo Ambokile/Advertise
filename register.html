@@ -22,52 +22,54 @@
     <script src="js/app.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    
+   // Wait for Cordova to load
+    //
     document.addEventListener("deviceready", onDeviceReady, false);
-	
-     function populateDB(tx) {
-       
+
+    // Populate the database 
+    //
+    function populateDB(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
 
-   
+    // Query the database
+    //
     function queryDB(tx) {
-        tx.executeSql('SELECT * FROM info', [], querySuccess, errorCB);
+        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
     }
 
     // Query the success callback
     //
     function querySuccess(tx, results) {
-        alert("Returned rows = " + results.rows.length);
-       
-        if (!results.rowsAffected) {
-            alert('No rows affected!');
-            return false;
+        var len = results.rows.length;
+        alert("DEMO table: " + len + " rows found.");
+        for (var i=0; i<len; i++){
+            console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
         }
-        
-        alert("Last inserted row ID = " + results.insertId);
     }
 
-   
-     function errorCB(err) {
+    // Transaction error callback
+    //
+    function errorCB(err) {
         alert("Error processing SQL: "+err.code);
     }
 
-    
+    // Transaction success callback
+    //
     function successCB() {
-        var db = window.openDatabase("info", "1.0", "Info DB", 100000);
+        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(queryDB, errorCB);
     }
 
-    
+    // Cordova is ready
+    //
     function onDeviceReady() {
-        var db = window.openDatabase("info", "1.0", "Info DB", 100000);
+        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(populateDB, errorCB, successCB);
     }
-
-
 
     </script>
 

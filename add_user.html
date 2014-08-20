@@ -32,7 +32,7 @@
                 options.filter = "";
 				options.multiple = true;
                 var fields = ["displayName", "name"];
-                navigator.contacts.find(fields, onSuccess, onError, options);
+                navigator.contacts.find(fields, alert(contacts[0].displayName), onError, options);
             }
 
           

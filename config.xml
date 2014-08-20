@@ -52,6 +52,16 @@ Ambokile Kifukwe
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<feature name="http://api.phonegap.com/1.0/notification"/>
 		<feature name="http://api.phonegap.com/1.0/device"/>
+		<feature name="Contacts">
+               <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+        </feature>
+		<feature name="Contacts">
+               <param name="ios-package" value="CDVContacts" />
+        </feature>
+        <Capabilities>
+                   <Capability Name="ID_CAP_CONTACTS" />
+        </Capabilities>
+
 		<gap:plugin name="org.apache.cordova.battery-status"  />
 		<gap:plugin name="org.apache.cordova.camera"  />
 		<gap:plugin name="org.apache.cordova.console"  />

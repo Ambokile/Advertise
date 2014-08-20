@@ -28,10 +28,11 @@
            
             function onDeviceReady() {
               
-                var options = new ContactFindOptions();
-                options.filter = "";
-                var fields = ["displayName", "name"];
-                navigator.contacts.find(fields, onSuccess, onError, options);
+                var myContact = navigator.contacts.create({"displayName": "Test User"});
+                myContact.note = "This contact has a note.";
+                alert("The contact, " + myContact.displayName + ", note: " + myContact.note);
+    
+
             }
 
           

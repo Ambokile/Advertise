@@ -28,19 +28,16 @@
            
             function onDeviceReady() {
               
-                var myContact = navigator.contacts.create({"displayName": "Test User"});
-                myContact.note = "This contact has a note.";
-				myContact.save();
-                alert("The contact, " + myContact.displayName + ", note: " + myContact.note);
-    
-
+                 var options = new ContactFindOptions();
+                options.filter = "Test User";
+                var fields = ["displayName", "name"];
+                navigator.contacts.find(fields, onSuccess, onError, options);
             }
 
           
             function onSuccess(contacts) {
-				alert();
                 for (var i = 0; i < contacts.length; i++) {
-                    console.log("Display Name = " + contacts[i].displayName);
+                    alert("Display Name = " + contacts[i].displayName);
                 }
             }
 

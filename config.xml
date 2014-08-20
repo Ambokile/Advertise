@@ -38,7 +38,7 @@ Ambokile Kifukwe
 		<preference name="KeepRunning" value="true"/>
 		<preference name="DisallowOverscroll" value="false"/>
 		<preference name="LoadingDialog" value="seine,wait..."/> 
-		<preference name="LoadUrlTimeoutValue" value="40000" />
+		<preference name="LoadUrlTimeoutValue" value="20000" />
 		<preference name="disable-cursor" value="false" />
 		<preference name="SplashScreen" value="splash" />
 

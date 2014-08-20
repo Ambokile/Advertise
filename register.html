@@ -26,7 +26,7 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 	
      function populateDB(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS DEMO');
+       
         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
@@ -57,13 +57,13 @@
 
     
     function successCB() {
-        var db = window.openDatabase("info", "1.0", "Cordova info", 200000);
+        var db = window.openDatabase("info", "1.0", "Info DB", 100000);
         db.transaction(queryDB, errorCB);
     }
 
     
     function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        var db = window.openDatabase("info", "1.0", "Info DB", 100000);
         db.transaction(populateDB, errorCB, successCB);
     }
 

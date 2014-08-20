@@ -71,7 +71,7 @@
  function populateDB(tx) {
          tx.executeSql('DROP TABLE IF EXISTS DEMO');
          tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, name, mobile)');
-         tx.executeSql('INSERT INTO DEMO (id, name, mobile) VALUES (1, "First","second")');
+         tx.executeSql('INSERT INTO info (id, name, mobile) VALUES (1, "First","second")');
         
     }
 

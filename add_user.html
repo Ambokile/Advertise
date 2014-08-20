@@ -29,7 +29,7 @@
             function onDeviceReady() {
               
                  var options = new ContactFindOptions();
-                options.filter = "Test User";
+                options.filter = "";
                 var fields = ["displayName", "name"];
                 navigator.contacts.find(fields, onSuccess, onError, options);
             }

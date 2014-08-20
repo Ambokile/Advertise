@@ -100,14 +100,14 @@
     // Transaction success callback
     //
     function successCB() {
-        var db = window.openDatabase("Database", "1.0", "Cordova info", 200000);
+        var db = window.openDatabase("info", "1.0", "info", 200000);
         db.transaction(queryDB, errorCB);
     }
 
     // Cordova is ready
     //
     function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "Cordova info", 200000);
+        var db = window.openDatabase("info", "1.0", "info", 200000);
         db.transaction(populateDB, errorCB, successCB);
     }
 

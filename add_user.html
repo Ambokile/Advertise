@@ -32,15 +32,15 @@
                 options.filter = "";
 				options.multiple = true;
                 var fields = ["displayName", "name"];
-                navigator.contacts.find(fields, alert(contacts.length), onError, options);
-            }
-
-          
-            function onSuccess(contacts) {
+                navigator.contacts.find(fields, function onSuccess(contacts) {
                 for (var i = 0; i < contacts.length; i++) {
                     alert("Display Name = " + contacts[i].displayName);
                 }
+            }, onError, options);
             }
+
+          
+            
 
           
             function onError(contactError) {

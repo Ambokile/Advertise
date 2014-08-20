@@ -21,16 +21,52 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script type="text/javascript" charset="utf-8">
+	
+   function upload_profile_img(){
+		
+	      var  element_1 = document.querySelector("#input_file");
+		   var element_2 = document.createElement("input"); 
+		   element_2.type = "file";
+		   element_2.id = "upload_img";
+		   element_2.style.visibility = "hidden";
+		   document.body.appendChild(element_2);
+		   document.querySelector("#upload_img").click();
+		   document.querySelector("#upload_img").onchange = img;
+		   return false; 
+	 }
+    function img(){
+	 
+	   var files = this.files;
+       var reader = new FileReader();
+       var name = this.value;
+       reader.onload = function (e) {
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 124 + "px";
+			element.style.height = 124 + "px";
+		var x = document.querySelector("#ava_img");
+		
+         document.querySelector("#input_file").replaceChild(element,x);
+       };
+       reader.readAsDataURL(files[0]);
+		 
+	}	
 
-   // Wait for Cordova to load
-    //
+
+ function register(){
+
+	 var fullName = document.querySelector("#").value;
+	 var mobile = document.querySelector("#").value;
+	 var passcode = document.querySelector("#").value;
+	 var img = document.getElementById("");
     document.addEventListener("deviceready", onDeviceReady, false);
-
+      }
     // Populate the database 
     //
     function populateDB(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+        tx.executeSql('DROP TABLE IF EXISTS info');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, data)');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
@@ -71,6 +107,7 @@
         db.transaction(populateDB, errorCB, successCB);
     }
 
+   
     </script>
 
     <script src="js/processor.js"></script>
@@ -104,9 +141,9 @@
                               <input type="password" placeholder="Rudia Nywila">
                       </label>
                       <label class="item item-input" style="border-left-style:none; border-right-style:none;">
-                            <div style=""><img src="img/default.jpg" width="124" height="124" /><span style=" float:right; text-indent:5%; font-size:12px;">weka picha yako hapa</span></div>
+                            <div id="input_file"><img src="img/default.jpg" id="ava_img" width="124" height="124"  /></div><div style=" float:right; text-indent:5%; font-size:12px;"><button class="button button-small button-positive" onClick="upload_profile_img();">upload profile image</button></div>
                       </label>
-  <button class="button button-block button-balanced" onClick="register()">Jisajili</button>
+  <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
 </div>
     
             </form>          

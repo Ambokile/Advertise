@@ -24,25 +24,48 @@
 
     
     document.addEventListener("deviceready", onDeviceReady, false);
+	
+     function populateDB(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS DEMO');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+    }
 
    
-    function onDeviceReady() {
-        var db = window.openDatabase("info", "1.0", "Info DB", 1000000);
-		db.transaction(populateDB, errorCB, successCB);
-
+    function queryDB(tx) {
+        tx.executeSql('SELECT * FROM info', [], querySuccess, errorCB);
     }
-	function populateDB(tx){
-		     tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-             tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-             tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
 
-		}
-	function errorCB(tx, err) {
-        console.log("Error processing SQL: "+err);
-           }
-     function successCB() {
-        console.log("success!");
-               }
+    // Query the success callback
+    //
+    function querySuccess(tx, results) {
+        alert("Returned rows = " + results.rows.length);
+       
+        if (!results.rowsAffected) {
+            alert('No rows affected!');
+            return false;
+        }
+        
+        alert("Last inserted row ID = " + results.insertId);
+    }
+
+   
+     function errorCB(err) {
+        alert("Error processing SQL: "+err.code);
+    }
+
+    
+    function successCB() {
+        var db = window.openDatabase("info", "1.0", "Cordova info", 200000);
+        db.transaction(queryDB, errorCB);
+    }
+
+    
+    function onDeviceReady() {
+        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+    }
 
 
 

@@ -55,6 +55,8 @@ Ambokile Kifukwe
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<feature name="http://api.phonegap.com/1.0/notification"/>
 		<feature name="http://api.phonegap.com/1.0/device"/>
+		
+
 		<feature name="Contacts">
                <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
         </feature>
@@ -83,6 +85,7 @@ Ambokile Kifukwe
 		<gap:plugin name="org.apache.cordova.network-information"  />
 		<gap:plugin name="org.apache.cordova.splashscreen"  />
 		<gap:plugin name="org.apache.cordova.vibration"  />
+		<plugin name="Storage" value="org.apache.cordova.Storage" />
 		<icon src="img/icon.png" />
 		<gap:splash src="splash.png" />
 		

@@ -56,32 +56,31 @@
 
  function register(){
 
-	 var fullName = document.querySelector("#").value;
-	 var mobile = document.querySelector("#").value;
-	 var passcode = document.querySelector("#").value;
-	 var img = document.getElementById("");
+	 window.fullName = document.querySelector("#").value;
+	 window.mobile = document.querySelector("#").value;
+	 window.passcode = document.querySelector("#").value;
+	 window.img = document.getElementById("");
     document.addEventListener("deviceready", onDeviceReady, false);
       }
     // Populate the database 
     //
     function populateDB(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS info');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, data)');
-        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+        tx.executeSql('DROP TABLE IF EXISTS DEMO');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, Name, mobile,profile_img)');
+        tx.executeSql('INSERT INTO info (id unique, Name, mobile,profile_img) VALUES (1, fullName,mobile,img)');
     }
 
     // Query the database
     //
     function queryDB(tx) {
-        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+        tx.executeSql('SELECT * FROM info', [], querySuccess, errorCB);
     }
 
     // Query the success callback
     //
     function querySuccess(tx, results) {
         var len = results.rows.length;
-        alert("DEMO table: " + len + " rows found.");
+        alert("info table: " + len + " rows found.");
         for (var i=0; i<len; i++){
             console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
         }
@@ -96,14 +95,14 @@
     // Transaction success callback
     //
     function successCB() {
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        var db = window.openDatabase("Database", "1.0", "Cordova info", 200000);
         db.transaction(queryDB, errorCB);
     }
 
     // Cordova is ready
     //
     function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        var db = window.openDatabase("Database", "1.0", "Cordova info", 200000);
         db.transaction(populateDB, errorCB, successCB);
     }
 

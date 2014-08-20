@@ -27,25 +27,23 @@
 
            
             function onDeviceReady() {
-              
-                 var options = new ContactFindOptions();
-                options.filter = "";
-				options.multiple = true;
-                var fields = ["displayName", "name"];
-                navigator.contacts.find(fields, function onSuccess(contacts) {
+				
+				 function onSuccess(contacts) {
                 for (var i = 0; i < contacts.length; i++) {
                     alert("Display Name = " + contacts[i].displayName);
                 }
-            }, onError, options);
             }
 
-          
-            
-
-          
-            function onError(contactError) {
+           function onError(contactError) {
                 alert('onError!');
             }
+		  
+                navigator.contacts.find(["*"], onSuccess, onError);
+            }
+
+          
+           
+           
 
     </script>
 

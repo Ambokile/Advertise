@@ -27,8 +27,7 @@
 
    
     function onDeviceReady() {
-		alert();
-        var db = window.openDatabase("info", "1.0", "Test DB", 1000000);
+        var db = window.openDatabase("info", "1.0", "Info DB", 1000000);
 		db.transaction(populateDB, errorCB, successCB);
 
     }
@@ -39,10 +38,10 @@
 
 		}
 	function errorCB(tx, err) {
-        alert("Error processing SQL: "+err);
+        console.log("Error processing SQL: "+err);
            }
      function successCB() {
-        alert("success!");
+        console.log("success!");
                }
 
 

@@ -55,18 +55,18 @@
 
 
  function register(){
-
-	 window.fullName = document.querySelector("#").value;
-	 window.mobile = document.querySelector("#").value;
-	 window.passcode = document.querySelector("#").value;
-	 window.img = document.getElementById("");
+     alert();
+	 //window.fullName = document.querySelector("#").value;
+	 //window.mobile = document.querySelector("#").value;
+	 //window.passcode = document.querySelector("#").value;
+	 //window.img = document.getElementById("");
     document.addEventListener("deviceready", onDeviceReady, false);
       }
     // Populate the database 
     //
     function populateDB(tx) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, Name, mobile,profile_img)');
-        tx.executeSql('INSERT INTO info (id unique, Name, mobile,profile_img) VALUES (1, fullName,mobile,img)');
+        tx.executeSql('INSERT INTO info (id unique, Name, mobile,profile_img) VALUES (1, "fullName","mobile","img")');
     }
 
     // Query the database

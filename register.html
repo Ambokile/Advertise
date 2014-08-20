@@ -70,9 +70,9 @@
     }*/
  function populateDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data,data2)');
+        tx.executeSql('INSERT INTO DEMO (id, data, data2) VALUES (1, "First row","second column")');
+        tx.executeSql('INSERT INTO DEMO (id, data,data2) VALUES (2, "Second row","second column")');
     }
 
     // Query the database
@@ -87,7 +87,7 @@
         var len = results.rows.length;
         alert("DEMO table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-            alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+            alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data+ " Data =  " + results.rows.item(i).data2);
         }
     }
 

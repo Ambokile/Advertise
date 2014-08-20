@@ -69,23 +69,23 @@
         tx.executeSql('INSERT INTO info (id unique, Name, mobile,profile_img) VALUES (1, "fullName","mobile","img")');
     }*/
  function populateDB(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data,data2)');
-        tx.executeSql('INSERT INTO DEMO (id, data, data2) VALUES (1, "First row","second column")');
-        tx.executeSql('INSERT INTO DEMO (id, data,data2) VALUES (2, "Second row","second column")');
+        tx.executeSql('DROP TABLE IF EXISTS info');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, data,data2)');
+        tx.executeSql('INSERT INTO info (id, data, data2) VALUES (1, "First row","second column")');
+        tx.executeSql('INSERT INTO info (id, data,data2) VALUES (2, "Second row","second column")');
     }
 
     // Query the database
     //
     function queryDB(tx) {
-        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+        tx.executeSql('SELECT * FROM info', [], querySuccess, errorCB);
     }
 
     // Query the success callback
     //
     function querySuccess(tx, results) {
         var len = results.rows.length;
-        alert("DEMO table: " + len + " rows found.");
+        alert("info table: " + len + " rows found.");
         for (var i=0; i<len; i++){
             alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data+ " Data =  " + results.rows.item(i).data2);
         }
@@ -100,14 +100,14 @@
     // Transaction success callback
     //
     function successCB() {
-        var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+        var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
         db.transaction(queryDB, errorCB);
     }
 
     // PhoneGap is ready
     //
     function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+        var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
         db.transaction(populateDB, errorCB, successCB);
     }
 

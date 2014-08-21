@@ -36,7 +36,7 @@ function onload(){
     }
 
 function capturePhoto(){
-        document.getElementById("#button_up").style.backgroundColor = "blue";
+       
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }
@@ -57,7 +57,7 @@ function onFail(message) {
 
 
   function upload(){
-	        document.getElementById("#button_1").style.backgroundColor = "blue";
+	      
 	      var  element_1 = document.querySelector("#input_file");
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";
@@ -87,7 +87,7 @@ function onFail(message) {
 		 
 	}	
 function advertise(){
-	document.getElementById("#button_ad").style.backgroundColor = "blue";
+	
     var msg = document.getElementById("about").value;
 	 var price = document.getElementById("price").value;
 	      var product_img = document.getElementById("ava_img");

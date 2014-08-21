@@ -99,12 +99,12 @@ function advertise(){
 			alert("please write price of the product");
 		}
 		
-	 else if(msg == "" || msg == null){
+	  if(msg == "" || msg == null){
 		      alert( "please write about product");
 		}
 	
 
-	else{ 
+	
 	      var data = new FormData();
 		 data.append('product_img',product_img.files[0]);
          data.append('msg',msg);
@@ -114,33 +114,24 @@ function advertise(){
 		xmlhttp = new XMLHttpRequest();}
 	else{
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+		
  xmlhttp.onreadystatechange = function(){
 	  
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 	
 		 var id = xmlhttp.responseText.search("success");
-		 if(id != -1 ){
-			     alert("successifull published");
-				 
-			 }
-		 else{
+		 if(id != -1 )
+			     alert("successifull published");				 
 			 
-			  var id_1 = xmlhttp.responseText.search("fail_filetype");
-			    if(id_1 != -1){
-					
-					   alert("The file format is not supported ");
-					}
-				else
-		             alert(xmlhttp.responseText);
+		 else
+		             alert(xmlhttp.responseText);  
 			  
-			  }
-		 }
-                                        };
+		                                                }
+                                };
 			xmlhttp.open('POST','http://fishpond.site88.net/tuma_matangazo.php',true);
 			xmlhttp.setRequestHeader('cache-control','no-cache');
 			xmlhttp.send(data);
-	  }
-	  
+	
 		return false;	
 	} 
     </script>
@@ -151,7 +142,7 @@ function advertise(){
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>
       <ion-content>
-      
+       <form action="" method="">
 			      <div class="list list-inset" style = "">
                              
                              </label>
@@ -159,7 +150,7 @@ function advertise(){
                                    <div id="input_file"><img src="img/default.jpg"  width= "300px" height= "300px" id = "ava_img"  onmousedown="upload()" style="visibility:visible" /></div> 
                              </label>
                              <label class="item item-input " style=" padding:2%; border-left-style:none;border-right-style:none; ">
-                                  <button class="button button-icon icon ion-document" onClick="upload();" id="button_1"></button>
+                                  <button class="button button-icon icon ion-document" onClick="upload();" ></button>
                              </label>
 							 <label class="item item-input">
                              <input type = "text" placeholder = "price in Tsh" id="price" />
@@ -168,13 +159,12 @@ function advertise(){
                              <textarea placeholder="about product" id="about"></textarea>
                               </label>
 							  
-                   </div>
+               </div>
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
-                   <button class="button button-icon icon ion-android-send" onClick="advertise();" id="button_ad"></button>
-                               <button class="button button-icon icon ion-android-camera" onClick="capturePhoto();" id="button_up"></button>
+                   <button class="button button-icon icon ion-android-send" onClick="advertise();" ></button>
+                               <button class="button button-icon icon ion-android-camera" onClick="capturePhoto();" ></button>
                     </div>
-			      
-		    
+		  </form>  
       </ion-content>
   </body>
 </html>

@@ -22,46 +22,22 @@
     <script src="js/app.js"></script>
     <script type="text/javascript" src="js/processor.js" ></script>
     <script type="text/javascript">
-	
-	
         function log_in(){
-		  alert();
 	 var user_name = document.querySelector("#user_name").value;
 	  var password = document.querySelector("#password").value;
 	   
 	   if(user_name == "" || user_name == null){
 	     alert("user_name field is empty");
-		 return false; 
+		 return false;
+		 
 	  }
-	  
       if(password == "" || password == null){
 	       alert("password field is empty");
 		   return false;
 	  }
 	  
-	   document.addEventListener("deviceready", onDeviceReady, false);
-		                        }
-		
-		
-	   function queryDB(tx) {
-		   
-    tx.executeSql('SELECT * FROM info where name = "'+document.querySelector("#user_name").value+'" AND password = "'+document.querySelector("#password").value+'"', [], querySuccess, errorCB);
-               }
-			   
-
- function errorCB(err) {
-        alert("Error processing SQL: "+err.code);
-    }
-
-
-  
-   
-   function querySuccess(tx, results) {
-	   alert("ambokile");
-	   alert(results.rows.item(i).mobile);
-       var id = results.rows.item(i).id;
-	   
-	    var xmlhttp;
+	  
+	   var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
 		}
@@ -71,28 +47,25 @@
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		 var id = xmlhttp.responseText.search("success");
+		 var id = xmlhttp.responseText.search("pass_in");
 		   if(id != -1){
 			       
+			       document.querySelector("#user_name").value =  "";
+					document.querySelector("#password").value = "";
+				   
 			       window.location = "main.html";
 			   }
 		   else
 		        alert("failed to log in, please check if every thing is correct and  try again");
 	 }
                                         };
-xmlhttp.open("GET","http://fishpond.site88.net/_seine_log_in.php?id="+id,true);
+xmlhttp.open("GET","http://fishpond.site88.net/seine_log_in.php?user="+user_name+"&pass="+password,true);
 xmlhttp.send();
-	  
+
+
 		return false;	
 	}
-
-function onDeviceReady() {
-	alert();
-               var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
-               db.transaction(queryDB,errorCB);
-                                 }
-	   	
-        	
+	
 
     </script>
     <script src="js/processor.js"></script>

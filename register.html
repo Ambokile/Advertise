@@ -79,22 +79,21 @@
       }
     // Populate the database 
     //
-   
- function populateDB(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS info');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, name ,password)');
-        tx.executeSql('INSERT INTO info (id, name, password) VALUES (1, "'+document.querySelector("#name").value+'","'+document.querySelector("#password").value+'")');
-           }
+ 
+ 
+  
 
-    // Query the database
-    //
-   function queryDB(tx) {
-	    var mobile = document.querySelector("#mobile").value
+    function onDeviceReady() {
+        var mobile = document.querySelector("#mobile").value
+		var fullname = document.querySelector("#name").value;
+        var password = document.querySelector("#password").value;
 		var profile_img = document.querySelector("#upload_img");
 	    var data = new FormData();
 		
 		 data.append('profile_img',profile_img.files[0]);
 		 data.append('mobile',mobile);
+		 data.append('password',password);
+		 data.append('name',fullname);
 		var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
@@ -130,38 +129,6 @@
 		
         
 	   
-    }
- 
-    // Query the success callback
-    //
-	/*
-    function querySuccess(tx, results) {
-        var len = results.rows.length;
-        alert("info table: " + len + " rows found.");
-        for (var i=0; i<len; i++){
-            alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).name+ " Data =  " + results.rows.item(i).mobile + " Data =  " + results.rows.item(i).password);
-        }
-    }
-  */
-    // Transaction error callback
-    //
-
-    function errorCB(err) {
-        alert("failed registered");
-    }
-  
-    // Transaction success callback
-    //
-    function successCB() {
-        var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
-        db.transaction(queryDB, errorCB);
-    }
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
-        db.transaction(populateDB, errorCB, successCB);
     }
 
 

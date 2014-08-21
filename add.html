@@ -89,8 +89,8 @@ function onFail(message) {
 function advertise(){
 	
     var msg = document.getElementById("about").value;
-	 var price = document.getElementById("price").value;
-	      var product_img = document.getElementById("ava_img");
+	var price = document.getElementById("price").value;
+	var product_img = document.getElementById("ava_img");
 		  
 		
 	 
@@ -99,30 +99,39 @@ function advertise(){
 			alert("please write price of the product");
 		}
 		
-	  if(msg == "" || msg == null){
+	  else if(msg == "" || msg == null){
 		      alert( "please write about product");
 		}
 	
-
-	
-	      var data = new FormData();
-		 data.append('product_img',product_img.files[0]);
+  else  {
+	        document.addEventListener("deviceready", onDeviceReady, false);
+	  }  
+		 
+	}
+function onDeviceReady(){
+	alert();
+	 var msg = document.getElementById("about").value;
+	var price = document.getElementById("price").value;
+	var product_img = document.getElementById("ava_img");
+		  
+		   var data = new FormData();
+          data.append('product_img',product_img.files[0]);
          data.append('msg',msg);
 		 data.append('price',price);
+		 
 		var xmlhttp;
 	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();}
+		xmlhttp = new XMLHttpRequest();
+		           }
 	else{
-	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		    }
 		
  xmlhttp.onreadystatechange = function(){
-	  
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-	
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 )
-			     alert("successifull published");				 
-			 
+			     alert("successifull published");				  
 		 else
 		             alert(xmlhttp.responseText);  
 			  
@@ -132,8 +141,8 @@ function advertise(){
 			xmlhttp.setRequestHeader('cache-control','no-cache');
 			xmlhttp.send(data);
 	
-		return false;	
-	} 
+		return false;
+   }
     </script>
 	</head>
   <body ng-app="add" onLoad="onload();">
@@ -142,7 +151,7 @@ function advertise(){
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>
       <ion-content>
-       <form action="" method="">
+      
 			      <div class="list list-inset" style = "">
                              
                              </label>
@@ -164,7 +173,7 @@ function advertise(){
                    <button class="button button-icon icon ion-android-send" onClick="advertise();" ></button>
                                <button class="button button-icon icon ion-android-camera" onClick="capturePhoto();" ></button>
                     </div>
-		  </form>  
+		  
       </ion-content>
   </body>
 </html>

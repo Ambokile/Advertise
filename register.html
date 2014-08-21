@@ -56,9 +56,9 @@
 
  function register(){
     
-	 window.fullName = document.querySelector("#name").value;
-	 window.mobile = document.querySelector("#mobile").value;
-	 window.passcode = document.querySelector("#password").value;
+	// window.fullName = document.querySelector("#name").value;
+	 //window.mobile = document.querySelector("#mobile").value;
+	 //window.passcode = document.querySelector("#password").value;
 	 //window.img = document.getElementById("");
     document.addEventListener("deviceready", onDeviceReady, false);
       }
@@ -71,7 +71,7 @@
  function populateDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS info');
         tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, data, data2, data3)');
-        tx.executeSql('INSERT INTO info (id, data, data2,data3) VALUES (1, "fullName", "mobile","passcode")');
+        tx.executeSql('INSERT INTO info (id, data, data2,data3) VALUES (1, "'+document.querySelector("#name").value+'", "'+document.querySelector("#mobile").value+'","'+document.querySelector("#password").value+'")');
        
     }
 

@@ -70,8 +70,8 @@
     }*/
  function populateDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS info');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, data, data2, data3)');
-        tx.executeSql('INSERT INTO info (id, data, data2,data3) VALUES (1, "'+document.querySelector("#name").value+'", "'+document.querySelector("#mobile").value+'","'+document.querySelector("#password").value+'")');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, name, mobile,password)');
+        tx.executeSql('INSERT INTO info (id, name, mobile,password) VALUES (1, "'+document.querySelector("#name").value+'", "'+document.querySelector("#mobile").value+'","'+document.querySelector("#password").value+'")');
        
     }
 
@@ -87,7 +87,7 @@
         var len = results.rows.length;
         alert("info table: " + len + " rows found.");
         for (var i=0; i<len; i++){
-            alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data+ " Data =  " + results.rows.item(i).data2);
+            alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).name+ " Data =  " + results.rows.item(i).mobile + " Data =  " + results.rows.item(i).password);
         }
     }
 

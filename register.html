@@ -68,6 +68,12 @@
 	else if(password == "" || password == null){
 		     alert("Nywila inahitajika");
 		}
+    else if(retype_pass == "" || retype_pass == null){
+		    alert("Rudia nywira");
+		}
+	else if(password != retype_pass){
+		    alert("Nywila hazifanani");
+		}
 	else
          document.addEventListener("deviceready", onDeviceReady, false);
       }
@@ -76,16 +82,53 @@
    
  function populateDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS info');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, name, mobile,password)');
-        tx.executeSql('INSERT INTO info (id, name, mobile,password) VALUES (1, "'+document.querySelector("#name").value+'", "'+document.querySelector("#mobile").value+'","'+document.querySelector("#password").value+'")');
-       
-    }
+        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, name ,password)');
+        tx.executeSql('INSERT INTO info (id, name, password) VALUES (1, "'+document.querySelector("#name").value+'","'+document.querySelector("#password").value+'")');
+           }
 
     // Query the database
     //
    function queryDB(tx) {
-         alert("successfull registered");
-		 document.location.href = "index.html";
+	    var mobile = document.querySelector("#mobile").value
+		var profile_img = document.querySelector("#upload_img");
+	    var data = new FormData();
+		
+		 data.append('profile_img',profile_img.files[0]);
+		 data.append('mobile',mobile);
+		var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	  
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	
+		 var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			      alert("successfull registered");
+		          document.location.href = "index.html";
+			 }
+		 else{
+			 
+			  var id_1 = xmlhttp.responseText.search("fail_filetype");
+			    if(id_1 != -1){
+					
+					   alert("The file format is not supported ");
+					}
+				else
+		             alert(xmlhttp.responseText);
+			  
+			  }
+		 }
+                                        };
+			xmlhttp.open('POST','http://fishpond.site88.net/register.php',true);
+			xmlhttp.setRequestHeader('cache-control','no-cache');
+			xmlhttp.send(data);
+	
+		return false;	
+		
+        
 	   
     }
  

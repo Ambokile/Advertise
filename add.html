@@ -36,7 +36,7 @@ function onload(){
     }
 
 function capturePhoto(){
-      
+        document.getElementById("#button_up").style.backgroundColor = "blue";
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }
@@ -57,6 +57,7 @@ function onFail(message) {
 
 
   function upload(){
+	        document.getElementById("#button_1").style.backgroundColor = "blue";
 	      var  element_1 = document.querySelector("#input_file");
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";
@@ -86,6 +87,7 @@ function onFail(message) {
 		 
 	}	
 function advertise(){
+	document.getElementById("#button_ad").style.backgroundColor = "blue";
     var msg = document.getElementById("about").value;
 	 var price = document.getElementById("price").value;
 	      var product_img = document.getElementById("ava_img");
@@ -157,7 +159,7 @@ function advertise(){
                                    <div id="input_file"><img src="img/default.jpg"  width= "300px" height= "300px" id = "ava_img"  onmousedown="upload()" style="visibility:visible" /></div> 
                              </label>
                              <label class="item item-input " style=" padding:2%; border-left-style:none;border-right-style:none; ">
-                                  <button class="button button-icon icon ion-document" onClick="upload();"></button>
+                                  <button class="button button-icon icon ion-document" onClick="upload();" id="button_1"></button>
                              </label>
 							 <label class="item item-input">
                              <input type = "text" placeholder = "price in Tsh" id="price" />
@@ -168,8 +170,8 @@ function advertise(){
 							  
                    </div>
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
-                   <button class="button button-icon icon ion-android-send" onClick="advertise(); document.style.backgroundColor = "blue""></button>
-                               <button class="button button-icon icon ion-android-camera" onClick="capturePhoto(); document.style.backgroundColor = "blue""></button>
+                   <button class="button button-icon icon ion-android-send" onClick="advertise();" id="button_ad"></button>
+                               <button class="button button-icon icon ion-android-camera" onClick="capturePhoto();" id="button_up"></button>
                     </div>
 			      
 		    

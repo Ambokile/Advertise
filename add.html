@@ -109,16 +109,17 @@ function advertise(){
 		 
 	}
 function onDeviceReady(){
-	alert();
+	
 	 var msg = document.getElementById("about").value;
 	var price = document.getElementById("price").value;
 	var product_img = document.getElementById("ava_img");
 		  
 		   var data = new FormData();
-          data.append('product_img',product_img.files[0]);
+         
          data.append('msg',msg);
 		 data.append('price',price);
-		 
+		  data.append('product_img',product_img.files[0]);
+		  alert();
 		var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
@@ -128,6 +129,7 @@ function onDeviceReady(){
 		    }
 		
  xmlhttp.onreadystatechange = function(){
+	 alert();
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 )
@@ -140,7 +142,7 @@ function onDeviceReady(){
 			xmlhttp.open('POST','http://fishpond.site88.net/tuma_matangazo.php',true);
 			xmlhttp.setRequestHeader('cache-control','no-cache');
 			xmlhttp.send(data);
-	
+	alert();
 		return false;
    }
     </script>

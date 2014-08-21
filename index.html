@@ -22,6 +22,8 @@
     <script src="js/app.js"></script>
     <script type="text/javascript" src="js/processor.js" ></script>
     <script type="text/javascript">
+	
+	
         function log_in(){
 		
 	 var user_name = document.querySelector("#user_name").value;
@@ -29,16 +31,29 @@
 	   
 	   if(user_name == "" || user_name == null){
 	     alert("user_name field is empty");
-		 return false;
-		 
+		 return false; 
 	  }
+	  
       if(password == "" || password == null){
 	       alert("password field is empty");
 		   return false;
 	  }
 	  
-	   	
-        tx.executeSql('SELECT * FROM info where name = "'+user_name+'" AND password = "'+password+'"', [], querySuccess, errorCB);
+	   document.addEventListener("deviceready", onDeviceReady, false);
+		                        }
+		
+		
+	   function queryDB(tx) {
+		   
+    tx.executeSql('SELECT * FROM info where name = "'+user_name+'" AND password = "'+password+'"', [], querySuccess, errorCB);
+               }
+
+ function errorCB(err) {
+        console.log("Error processing SQL: "+err.code);
+    }
+
+
+  
    
    function querySuccess(tx, results) {
        var id = results.rows.item(i).id;
@@ -64,13 +79,16 @@
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/_seine_log_in.php?id="+id,true);
 xmlhttp.send();
-
-
-    }
 	  
 		return false;	
 	}
-	
+
+function onDeviceReady() {
+               var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
+               db.transaction(queryDB,errorCB);
+                                 }
+	   	
+        	
 
     </script>
     <script src="js/processor.js"></script>

@@ -47,13 +47,11 @@
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		 var id = xmlhttp.responseText.search("pass_in");
+		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
 			       
-			       document.querySelector("#user_name").value =  "";
-					document.querySelector("#password").value = "";
-				   
 			       window.location = "main.html";
+				   
 			   }
 		   else
 		        alert("failed to log in, please check if every thing is correct and  try again");

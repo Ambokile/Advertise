@@ -23,6 +23,7 @@
     <script type="text/javascript" src="js/processor.js" ></script>
     <script type="text/javascript">
         function log_in(){
+		
 	 var user_name = document.querySelector("#user_name").value;
 	  var password = document.querySelector("#password").value;
 	   
@@ -36,8 +37,13 @@
 		   return false;
 	  }
 	  
-	  
-	   var xmlhttp;
+	   	
+        tx.executeSql('SELECT * FROM info where name = "'+user_name+'" AND password = "'+password+'"', [], querySuccess, errorCB);
+   
+   function querySuccess(tx, results) {
+       var id = results.rows.item(i).id;
+	   
+	    var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
 		}
@@ -47,22 +53,21 @@
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		 var id = xmlhttp.responseText.search("pass_in");
+		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
 			       
-			       document.querySelector("#user_name").value =  "";
-					document.querySelector("#password").value = "";
-				   
 			       window.location = "main.html";
 			   }
 		   else
 		        alert("failed to log in, please check if every thing is correct and  try again");
 	 }
                                         };
-xmlhttp.open("GET","http://fishpond.site88.net/log_in.php?user="+user_name+"&pass="+password,true);
+xmlhttp.open("GET","http://fishpond.site88.net/_seine_log_in.php?id="+id,true);
 xmlhttp.send();
 
 
+    }
+	  
 		return false;	
 	}
 	

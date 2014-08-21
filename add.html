@@ -90,7 +90,7 @@ function advertise(){
 	
     var msg = document.getElementById("about").value;
 	var price = document.getElementById("price").value;
-	
+	var product_img = document.querySelector("#upload_img");
 	 if(price == "" || price == null){
 		   
 			alert("please write price of the product");
@@ -99,7 +99,9 @@ function advertise(){
 	  else if(msg == "" || msg == null){
 		      alert( "please write about product");
 		}
-	
+	  else if(product_img.files[0].length < 1){
+		      alert( "please upload product image");
+		}
       else
 	        document.addEventListener("deviceready", onDeviceReady, false);
 	    

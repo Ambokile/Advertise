@@ -45,7 +45,7 @@
 		
 	   function queryDB(tx) {
 		   
-    tx.executeSql('SELECT * FROM info where name = "'+user_name+'" AND password = "'+password+'"', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM info where name = "'+document.querySelector("#user_name").value+'" AND password = "'+document.querySelector("#password").value+'"', [], querySuccess, errorCB);
                }
 
  function errorCB(err) {
@@ -57,7 +57,7 @@
    
    function querySuccess(tx, results) {
 	   alert();
-	   alert(results.results.insertId);
+	   alert(results.rows.item(i).mobile);
        var id = results.rows.item(i).id;
 	   
 	    var xmlhttp;

@@ -55,19 +55,25 @@
 
 
  function register(){
-    
-	// window.fullName = document.querySelector("#name").value;
-	 //window.mobile = document.querySelector("#mobile").value;
-	 //window.passcode = document.querySelector("#password").value;
-	 //window.img = document.getElementById("");
-    document.addEventListener("deviceready", onDeviceReady, false);
+  var fullname = document.querySelector("#name").value;
+  var mobile = document.querySelector("#mobile").value
+  var password = document.querySelector("#password").value;
+  var retype_pass = document.querySelector("#retype_pass").value;
+	if(fullname == "" || fullname == null){
+		   alert("Jina linahitajika");
+		}
+	else if(mobile == "" || mobile == null){
+		    alert("namba ya simu inahitajika");
+		}
+	else if(password == "" || password == null){
+		     alert("Nywila inahitajika");
+		}
+	else
+         document.addEventListener("deviceready", onDeviceReady, false);
       }
     // Populate the database 
     //
-   /* function populateDB(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, Name, mobile,profile_img)');
-        tx.executeSql('INSERT INTO info (id unique, Name, mobile,profile_img) VALUES (1, "fullName","mobile","img")');
-    }*/
+   
  function populateDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS info');
         tx.executeSql('CREATE TABLE IF NOT EXISTS info (id unique, name, mobile,password)');
@@ -77,12 +83,15 @@
 
     // Query the database
     //
-    function queryDB(tx) {
-        tx.executeSql('SELECT * FROM info', [], querySuccess, errorCB);
+   function queryDB(tx) {
+         alert("successfull registered");
+		 document.location.href = "index.html";
+	   
     }
-
+ 
     // Query the success callback
     //
+	/*
     function querySuccess(tx, results) {
         var len = results.rows.length;
         alert("info table: " + len + " rows found.");
@@ -90,13 +99,14 @@
             alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).name+ " Data =  " + results.rows.item(i).mobile + " Data =  " + results.rows.item(i).password);
         }
     }
-
+  */
     // Transaction error callback
     //
-    function errorCB(err) {
-        alert("Error processing SQL: "+err.code);
-    }
 
+    function errorCB(err) {
+        alert("failed registered");
+    }
+  
     // Transaction success callback
     //
     function successCB() {
@@ -133,7 +143,7 @@
                       </label>
                        <label class="item item-input">
                          <i class="icon ion-ios7-telephone-outline"></i>
-                         <input type="text" placeholder="Mobile number" id="mobile">
+                         <input type="text" placeholder="Namba ya simu ya mkononi" id="mobile">
                       </label>
                       <label class="item item-input">
                          <i class="icon ion-briefcase"></i>
@@ -145,7 +155,7 @@
                               <input type="password" placeholder="Rudia Nywila" id="retype_pass">
                       </label>
                       <label class="item item-input" style="border-left-style:none; border-right-style:none;">
-                            <div id="input_file"><img src="img/default.jpg" id="ava_img" width="124" height="124"  /></div><div style=" float:right; text-indent:5%; font-size:12px;"><button class="button button-small button-positive" onClick="upload_profile_img();">upload profile image</button></div>
+                            <div id="input_file"><img src="img/default.jpg" id="ava_img" width="124" height="124"  /></div><div style=" float:right; text-indent:5%; font-size:12px;"><button class="button button-small button-positive" onClick="upload_profile_img();">Weka picha yako</button></div>
                       </label>
   <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
 </div>

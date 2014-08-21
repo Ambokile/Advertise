@@ -47,6 +47,7 @@
 		   
     tx.executeSql('SELECT * FROM info where name = "'+document.querySelector("#user_name").value+'" AND password = "'+document.querySelector("#password").value+'"', [], querySuccess, errorCB);
                }
+			   
 
  function errorCB(err) {
         alert("Error processing SQL: "+err.code);
@@ -56,7 +57,7 @@
   
    
    function querySuccess(tx, results) {
-	   alert(results.insertId);
+	   alert("ambokile");
 	   alert(results.rows.item(i).mobile);
        var id = results.rows.item(i).id;
 	   

@@ -25,7 +25,7 @@
 	
 	
         function log_in(){
-		
+		  alert();
 	 var user_name = document.querySelector("#user_name").value;
 	  var password = document.querySelector("#password").value;
 	   
@@ -49,13 +49,15 @@
                }
 
  function errorCB(err) {
-        console.log("Error processing SQL: "+err.code);
+        alert("Error processing SQL: "+err.code);
     }
 
 
   
    
    function querySuccess(tx, results) {
+	   alert();
+	   alert(results.rows.item(i).mobile);
        var id = results.rows.item(i).id;
 	   
 	    var xmlhttp;
@@ -84,6 +86,7 @@ xmlhttp.send();
 	}
 
 function onDeviceReady() {
+	alert();
                var db = window.openDatabase("Database", "1.0", "PhoneGap info", 200000);
                db.transaction(queryDB,errorCB);
                                  }

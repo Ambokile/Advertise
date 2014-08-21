@@ -90,10 +90,7 @@ function advertise(){
 	
     var msg = document.getElementById("about").value;
 	var price = document.getElementById("price").value;
-	var product_img = document.getElementById("ava_img");
-		  
-		
-	 
+	
 	 if(price == "" || price == null){
 		   
 			alert("please write price of the product");
@@ -109,42 +106,48 @@ function advertise(){
 		 
 	}
 function onDeviceReady(){
-	alert()
-	 var msg = document.getElementById("about").value;
-	var price = document.getElementById("price").value;
-	var product_img = document.getElementById("ava_img");
-		  alert(msg + price + product_img);
-		   var data = new FormData();
+	 var msg = document.querySelector("#about").value
+		var price = document.querySelector("#price").value;
+		var product_img = document.querySelector("#upload_img");
+	    var data = new FormData();
 		
 		 data.append('product_img',product_img.files[0]);
 		 data.append('price',price);
 		 data.append('msg',msg);
-		
-		  alert();
 		var xmlhttp;
 	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();
-		           }
+		xmlhttp = new XMLHttpRequest();}
 	else{
-	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		    }
-		
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
  xmlhttp.onreadystatechange = function(){
-	 alert();
+	  
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	
 		 var id = xmlhttp.responseText.search("success");
-		 if(id != -1 )
-			     alert("successifull published");				  
-		 else
-		             alert(xmlhttp.responseText);  
+		 if(id != -1 ){
+			      alert("imefaulu kujiunga, unaweza kuingai");
+		          document.location.href = "index.html";
+			 }
+		 else{
+			 
+			  var id_1 = xmlhttp.responseText.search("fail_filetype");
+			    if(id_1 != -1){
+					
+					   alert("The file format is not supported ");
+					}
+				else
+		             alert(xmlhttp.responseText);
 			  
-		                                                }
-                                };
-			xmlhttp.open('POST','http://fishpond.site88.net/tuma_matangazo.php',true);
+			  }
+		 }
+                                        };
+			xmlhttp.open('POST','http://fishpond.site88.net/tume_matangazo.php',true);
 			xmlhttp.setRequestHeader('cache-control','no-cache');
 			xmlhttp.send(data);
-	alert();
-		return false;
+	
+		return false;	
+		
+        
    }
     </script>
 	</head>

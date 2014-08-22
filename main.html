@@ -24,32 +24,41 @@
      <script type="text/javascript">
 	
 	var pictureSource;   
-    var destinationType; 
+    var destinationType;
+	 
+	 document.addEventListener("deviceready",onDeviceReady_2,false);
+	 
 
-function onload(){  
-    document.addEventListener("deviceready",onDeviceReady,false);
-                      }
+ function onDeviceReady_2() {
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+    }
+
    
-function capturePhoto(){
-       alert();
+    function capturePhoto() {
+     
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }
 
-function onPhotoDataSuccess(imageData){
-	var cameraPic = document.querySelector("#ava_img");
-	cameraPic.style.display = 'block';
+    function capturePhotoEdit() {
+      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
+    }
 
-	   cameraPic.src = "data:image/jpeg;base64," + imageData;
-
-	}
-function onFail(message) {
+    
+    function onFail(message) {
       alert('Failed because: ' + message);
     }
 
 
-  
 
+
+  
+window.onload = function(){
+	     document.addEventListener("deviceready",onDeviceReady,false);
+	}
 
   function upload(){
 	      
@@ -103,8 +112,7 @@ function advertise(){
 		 
 	}
 function onDeviceReady(){
-	 pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
+	
 	 var msg = document.querySelector("#about").value
 		var price = document.querySelector("#price").value;
 		var product_img = document.querySelector("#upload_img");

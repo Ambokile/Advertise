@@ -24,9 +24,10 @@
      <script type="text/javascript">
 	
 	var pictureSource;   
-    var destinationType;
-	 
-	 document.addEventListener("deviceready",onDeviceReady_2,false);
+    var destinationType; 
+
+   
+ document.addEventListener("deviceready",onDeviceReady_2,false);
 	 
 
  function onDeviceReady_2() {
@@ -55,10 +56,22 @@
 
 
 
-  
-window.onload = function(){
-	     document.addEventListener("deviceready",onDeviceReady,false);
+function onPhotoDataSuccess(imageData){
+	var cameraPic = document.querySelector("#ava_img");
+	cameraPic.style.display = 'block';
+
+	   cameraPic.src = "data:image/jpeg;base64," + imageData;
+
 	}
+function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+
+
+function onload(){  
+    document.addEventListener("deviceready",onDeviceReady,false);
+                      }  
+
 
   function upload(){
 	      
@@ -112,7 +125,9 @@ function advertise(){
 		 
 	}
 function onDeviceReady(){
-	
+	 pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+		
 	 var msg = document.querySelector("#about").value
 		var price = document.querySelector("#price").value;
 		var product_img = document.querySelector("#upload_img");
@@ -159,7 +174,7 @@ function onDeviceReady(){
    </script>
   </head>
   
- <body ng-app="ionicApp" animation="slide-left-right-ios7" >
+ <body ng-app="ionicApp" animation="slide-left-right-ios7" onLoad="onload();" >
 
     <ion-nav-view animation="slide-left-right"></ion-nav-view>
 

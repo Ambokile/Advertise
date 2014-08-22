@@ -66,14 +66,137 @@ xmlhttp.send();
 	}
 	
 
+   function upload_profile_img(){
+		
+	      var  element_1 = document.querySelector("#input_file");
+		   var element_2 = document.createElement("input"); 
+		   element_2.type = "file";
+		   element_2.id = "upload_img";
+		   element_2.style.visibility = "hidden";
+		   document.body.appendChild(element_2);
+		   document.querySelector("#upload_img").click();
+		   document.querySelector("#upload_img").onchange = img;
+		   return false; 
+	 }
+    function img(){
+	 
+	   var files = this.files;
+       var reader = new FileReader();
+       var name = this.value;
+       reader.onload = function (e) {
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 124 + "px";
+			element.style.height = 124 + "px";
+		var x = document.querySelector("#ava_img");
+		
+         document.querySelector("#input_file").replaceChild(element,x);
+       };
+       reader.readAsDataURL(files[0]);
+		 
+	}	
+
+
+ function register(){
+  var fullname = document.querySelector("#name").value;
+  var mobile = document.querySelector("#mobile").value
+  var password = document.querySelector("#password").value;
+  var retype_pass = document.querySelector("#retype_pass").value;
+	if(fullname == "" || fullname == null){
+		   alert("Jina linahitajika");
+		}
+	else if(mobile == "" || mobile == null){
+		    alert("namba ya simu inahitajika");
+		}
+	else if(password == "" || password == null){
+		     alert("Nywila inahitajika");
+		}
+    else if(retype_pass == "" || retype_pass == null){
+		    alert("Rudia nywira");
+		}
+	else if(password != retype_pass){
+		    alert("Nywila hazifanani");
+		}
+	else
+         document.addEventListener("deviceready", onDeviceReady, false);
+      }
+    // Populate the database 
+    //
+ 
+ 
+  
+
+    function onDeviceReady() {
+        var mobile = document.querySelector("#mobile").value
+		var fullname = document.querySelector("#name").value;
+        var password = document.querySelector("#password").value;
+		var profile_img = document.querySelector("#upload_img");
+	    var data = new FormData();
+		
+		 data.append('profile_img',profile_img.files[0]);
+		 data.append('mobile',mobile);
+		 data.append('password',password);
+		 data.append('name',fullname);
+		var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	  
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	
+		 var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			      alert("imefaulu kujiunga, unaweza kuingai");
+		          document.location.href = "index.html";
+			 }
+		 else{
+			 
+			  var id_1 = xmlhttp.responseText.search("fail_filetype");
+			    if(id_1 != -1){
+					
+					   alert("The file format is not supported ");
+					}
+				else
+		             alert(xmlhttp.responseText);
+			  
+			  }
+		 }
+                                        };
+			xmlhttp.open('POST','http://fishpond.site88.net/register.php',true);
+			xmlhttp.setRequestHeader('cache-control','no-cache');
+			xmlhttp.send(data);
+	
+		return false;	
+		
+        
+	   
+    }
+
+
     </script>
     <script src="js/processor.js"></script>
+   
   </head>
   <body ng-app="home">
      
      
       
     <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+        <div class="tabs-striped tabs-top tabs-background-light tabs-positive">
+    <div class="tabs">
+      <a class="tab-item" href="#/home" id="home" onClick="home();">
+	      <i class="icon ion-home"></i>
+         Nyumbani
+      </a>
+      <a class="tab-item" href="#/register" id="register;" onClick="reg();">
+       <i class="icon ion-ios7-people"></i>
+          Kujiunga 
+      </a>
+    </div>
+  </div>
     </ion-nav-bar>
     
     <ion-nav-view animation="slide-left-right"></ion-nav-view>
@@ -81,7 +204,7 @@ xmlhttp.send();
 
     <script id="home.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
-	   <div class="list list-inset" style="margin-top:30%;">
+	   <div class="list list-inset" style="margin-top:40%;">
       
          <form action="" method="">
            <label class="item item-input">
@@ -100,16 +223,42 @@ xmlhttp.send();
                 <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
             </div>
 
-            <div style=" width:100%; text-align:left;">
-               <span style=" margin-left:5%;"><a href="" onClick="document.location.href ='register.html'"  style="font-size:12px; text-decoration:none">- fungua akaunti</a>
-            </div>
-            <div style=" width:100%; text-align:left;">
-                <span style="margin-left:5%;"><a href="" style="font-size:12px; text-decoration:none">- nikumbushe nywila</a></span>
-            </div>
-            
+           
+           
+		    <script id="register.html" type="text/ng-template">
+			     <ion-view title= "Matangazo">
+        
+             <div class="list list-inset" style = "margin-top:40%;">
+                      <label class="item item-input">
+                       <i class="icon ion-android-social-user"></i>
+                          <input type="text" placeholder="Jina kamili" id="name">
+                      </label>
+                       <label class="item item-input">
+                         <i class="icon ion-ios7-telephone-outline"></i>
+                         <input type="text" placeholder="Namba ya simu ya mkononi" id="mobile">
+                      </label>
+                      <label class="item item-input">
+                         <i class="icon ion-briefcase"></i>
+                         <input type="password" placeholder="Nywila" id="password">
+                      </label>
+                      
+                      <label class="item item-input">
+                              <i class="icon ion-briefcase"></i>
+                              <input type="password" placeholder="Rudia Nywila" id="retype_pass">
+                      </label>
+                      <label class="item item-input" style="border-left-style:none; border-right-style:none;">
+                            <div id="input_file"><img src="img/default.jpg" id="ava_img" width="124" height="124"  /></div><div style=" float:right; text-indent:5%; font-size:12px;"><button class="button button-small button-positive" onClick="upload_profile_img();">Weka picha yako</button></div>
+                      </label>
+  <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
+</div>
+    
+            </ion-view>
+     
+			</script> 
              
       </div>
       </ion-view>
     </script>
+
   </body>
 </html>

@@ -30,13 +30,14 @@
 	 
 
 function onDeviceReady(){
+	alert();
      pictureSource=navigator.camera.PictureSourceType;
      destinationType=navigator.camera.DestinationType;
           }
        
    
 function capturePhoto() {
-     
+     alert();
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }

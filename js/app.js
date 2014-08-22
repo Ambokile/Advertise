@@ -6,6 +6,7 @@
 
 
    var app = angular.module('add', ['ionic'])
+   angular.module('add_1', ['ionic'])
    
 var application = angular.module('ionicApp', ['ionic'])
 
@@ -51,4 +52,11 @@ application.controller('InfoCtrl', function($scope) {
   angular.module('account', ['ionic'])
   angular.module('add_user', ['ionic'])
    angular.module('register', ['ionic'])
+   
+   function ContentController($scope, $ionicSideMenuDelegate) {
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+}
+
 

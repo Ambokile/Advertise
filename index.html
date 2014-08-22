@@ -47,15 +47,17 @@
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		  document.getElementById("load_image").style.visibility = "hidden";
+		 
 		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
-			       x.
+			        document.getElementById("load_image").style.visibility = "hidden";
 			       window.location = "main.html";
 				   
 			   }
-		   else
+		   else{
+			      document.getElementById("load_image").style.visibility = "hidden";
 		        alert("failed to log in, please check if every thing is correct and  try again");
+		   }
 	 }
                                         };
 xmlhttp.open("GET","http://fishpond.site88.net/seine_log_in.php?user="+user_name+"&pass="+password,true);
@@ -185,7 +187,7 @@ xmlhttp.send();
      
       
     <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
-        <div class="tabs-striped tabs-top tabs-background-light tabs-positive">
+     <div class="tabs-striped tabs-top tabs-background-light tabs-positive">
     <div class="tabs">
       <a class="tab-item" href="#/home" id="home" onClick="home();">
 	      <i class="icon ion-home"></i>
@@ -202,8 +204,11 @@ xmlhttp.send();
     <ion-nav-view animation="slide-left-right"></ion-nav-view>
 
 
-    <script id="home.html" type="text/ng-template"> 
+    <script id="home.html" type="text/ng-template">
+	
+   
       <ion-view title= "Matangazo">
+	 
 	   <ion-scroll zooming="false" direction="y" style="height:98%;">
 	   <div class="list list-inset" style="margin-top:40%;">
       

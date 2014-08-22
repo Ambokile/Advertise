@@ -2,7 +2,6 @@
 	
  window.onload = function(){
 	     function grap_info(){
-   var str = 'A';
 	 var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
@@ -14,10 +13,10 @@
 	 } 
 			 
 			                       };
-xmlhttp.open("GET","http://fishpond.site88.net/get_matangazo.php?str="+str,true);
+xmlhttp.open("GET","http://fishpond.site88.net/get_matangazo.php",true);
 xmlhttp.send();
    }
-             setTimeout(grap_info,5);
+             setInterval(grap_info,5);
 	 
     function getUser(){
 	    var xmlhttp;

@@ -136,18 +136,11 @@ function go_Adv(){
 	
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
-			      alert("imefaulu kujiunga, unaweza kuingai");
-		          document.location.href = "index.html";
+			      alert("imefaulu kutangazwa");
 			 }
 		 else{
 			 
-			  var id_1 = xmlhttp.responseText.search("fail_filetype");
-			    if(id_1 != -1){
-					
-					   alert("The file format is not supported ");
-					}
-				else
-		             alert(xmlhttp.responseText);
+			        alert("imeshindwa kutangazwa, jaribu tena");
 			  
 			  }
 		 }

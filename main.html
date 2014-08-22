@@ -30,11 +30,6 @@ function onload(){
     document.addEventListener("deviceready",onDeviceReady,false);
                       }
    
-    function onDeviceReady() {
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-    }
-
 function capturePhoto(){
        alert();
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
@@ -108,6 +103,8 @@ function advertise(){
 		 
 	}
 function onDeviceReady(){
+	 pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
 	 var msg = document.querySelector("#about").value
 		var price = document.querySelector("#price").value;
 		var product_img = document.querySelector("#upload_img");

@@ -204,6 +204,7 @@ xmlhttp.send();
 
     <script id="home.html" type="text/ng-template"> 
       <ion-view title= "Matangazo">
+	   <ion-scroll zooming="false" direction="y" style="height:98%;">
 	   <div class="list list-inset" style="margin-top:40%;">
       
          <form action="" method="">
@@ -222,12 +223,13 @@ xmlhttp.send();
            <div style=" width:100%; text-align:center; " >
                 <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
             </div>
-
+			</ion-scroll>
+      </script>
            
            
 		    <script id="register.html" type="text/ng-template">
 			     <ion-view title= "Matangazo">
-        
+           <ion-scroll zooming="false" direction="y" style="height:98%;">
              <div class="list list-inset" style = "margin-top:40%;">
                       <label class="item item-input">
                        <i class="icon ion-android-social-user"></i>
@@ -251,7 +253,7 @@ xmlhttp.send();
                       </label>
   <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
 </div>
-    
+    </ion-scroll>
             </ion-view>
      
 			</script> 

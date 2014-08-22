@@ -35,20 +35,22 @@
 		   return false;
 	  }
 	  
-	  
+	  document.getElementById("load_image").style.visibility = "visible";
 	   var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
 		}
      else{
+         
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
 		
  xmlhttp.onreadystatechange = function(){
 	 
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		  document.getElementById("load_image").style.visibility = "hidden";
 		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
-			       
+			       x.
 			       window.location = "main.html";
 				   
 			   }
@@ -87,19 +89,25 @@ xmlhttp.send();
               <input type="text" placeholder="jina au namba ya mtumiaji" id="user_name" />
            </label>
            <label class="item item-input">
-            <i class="icon ion-android-social-user"></i>
+            <i class="icon ion-briefcase"></i>
              <input type="password" placeholder="Nywila ya mtumiaji" id="password" />
              
            </label>
             <button class="button button-full button-positive" onClick="log_in()">Ingia</button>
             </form>          
      </div>
+           <div style=" width:100%; text-align:center; " >
+                <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
+            </div>
+
             <div style=" width:100%; text-align:left;">
                <span style=" margin-left:5%;"><a href="" onClick="document.location.href ='register.html'"  style="font-size:12px; text-decoration:none">- fungua akaunti</a>
             </div>
             <div style=" width:100%; text-align:left;">
                 <span style="margin-left:5%;"><a href="" style="font-size:12px; text-decoration:none">- nikumbushe nywila</a></span>
             </div>
+            
+             
       </div>
       </ion-view>
     </script>

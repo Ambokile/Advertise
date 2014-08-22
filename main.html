@@ -44,9 +44,9 @@ function capturePhoto() {
 
 function capturePhotoEdit() {
      alert();
-	// document.addEventListener("deviceready",onDeviceReady,false);
-     // navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-       // destinationType: destinationType.DATA_URL });
+	 document.addEventListener("deviceready",onDeviceReady,false);
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
     }
 
 
@@ -230,9 +230,9 @@ function go_Adv(){
                </div>
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
                    <button class="button button-icon icon ion-android-send" onClick="advertise();" ></button>
-                               <button class="button button-icon icon ion-android-camera" onClick="capturePhotoEdit()" ></button>
+                               <button class="button button-icon icon ion-android-camera" onmousedown ="capturePhotoEdit()" ></button>
                     </div>
-		  
+		              
     
             </form>          
     

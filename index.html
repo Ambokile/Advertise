@@ -24,7 +24,7 @@
     <script type="text/javascript">
         function log_in(){
 	 var user_name = document.querySelector("#user_name").value;
-	  var password = document.querySelector("#password").value;
+	  var password = document.querySelector("#pass").value;
 	    
 		 
 	   if(user_name == "" || user_name == null){
@@ -43,10 +43,11 @@
 		
 function mlango(){
 	 var user_name = document.querySelector("#user_name").value;
-	  var password = document.querySelector("#password").value;
+	  var password = document.querySelector("#pass").value;
 	  
 	   
 	  var data = new FormData();
+	  
 	  data.append('user',user_name);
 	  data.append('pass',password);
 		
@@ -136,10 +137,7 @@ xmlhttp.send(data);
 	else
          document.addEventListener("deviceready", onDeviceReady, false);
       }
-    // Populate the database 
-    //
- 
- 
+   
   
 
     function onDeviceReady() {
@@ -232,7 +230,7 @@ xmlhttp.send(data);
            </label>
            <label class="item item-input">
             <i class="icon ion-briefcase"></i>
-             <input type="password" placeholder="Nywila ya mtumiaji" id="password" />
+             <input type="password" placeholder="Nywila ya mtumiaji" id="pass" />
              
            </label>
             <button class="button button-full button-positive" onClick="log_in()">Ingia</button>

@@ -53,17 +53,17 @@ function mlango(){
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
 		
  xmlhttp.onreadystatechange = function(){
-	   
+	   alert("Ambokile");
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 
 		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
 			       
-			       window.location = "main.html";				   
+			       alert(xmlhttp.responseText);				   
 			          }
 		   else{
-			      document.getElementById("load_image").style.visibility = "hidden";
-		        alert("failed to log in, please check if every thing is correct and  try again");
+			     
+		        alert(xmlhttp.responseText);
 		         }
 	                                                     }
                                         };

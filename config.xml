@@ -89,8 +89,8 @@ Ambokile Kifukwe
 		<icon src="img/icon.png" />
 		<gap:splash src="splash.png" />
 		
-	 <access /> <!-- a blank access tag denies access to all external resources. -->
-<access origin="http://fishpond.site88.net" /> <!-- a wildcard access tag allows access to all external resource.-->
+	
+<access origin="*" /> <!-- a wildcard access tag allows access to all external resource.-->
 
 <!--Otherwise, you can specify specific domains:-->
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->

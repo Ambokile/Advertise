@@ -54,27 +54,23 @@ function mlango(){
 		
  xmlhttp.onreadystatechange = function(){
 	  
-	 if(xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 0 )){
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 
 		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
 			       
-			       alert(xmlhttp.responseText);				   
+			       document.location.href= "main.html";		   
 			          }
 		   else{
 			     
-		        alert(xmlhttp.responseText);
+		        alert("");
 		         }
 	                                                     }
-	 else
-	       alert(xmlhttp.status);
-                                        };
- var url = 'http://fishpond.site88.net/seine_log_in.php';
+	                       };
+ var url = 'http://fishpond.site88.net/seine_log_in.php?user='+ user_name+'&pass='+password;
 xmlhttp.open('GET',url,true);
 xmlhttp.send();
-
-
-		return false;	
+	return false;	
 	}
 	
 

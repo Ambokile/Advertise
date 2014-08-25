@@ -42,12 +42,37 @@
 		}
 		
 function mlango(){
-	var query = $('#form_log').serialize();
-        var url = 'http://fishpond.site88.net/seine_log_in.php';
-        $.post(url, query, function (response) {
-         alert (response);
-        });
-}
+	 var user_name = document.querySelector("#user_name").value;
+	  var password = document.querySelector("#pass").value;
+	  
+	var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+		}
+     else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+		
+ xmlhttp.onreadystatechange = function(){
+	  
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		 
+		 var id = xmlhttp.responseText.search("success");
+		   if(id != -1){
+			       
+			       document.location.href= "main.html";		   
+			          }
+		   else{
+			     
+		        alert("");
+		         }
+	                                                     }
+	                       };
+ var url = 'http://fishpond.site88.net/seine_log_in.php?user='+ user_name+'&pass='+password;
+xmlhttp.open('GET',url,true);
+xmlhttp.send();
+	return false;	
+	}
+	
 
    function upload_profile_img(){
 		
@@ -181,14 +206,14 @@ function mlango(){
 				<ion-content>
 						<div class="list list-inset" style="margin-top:20%;">
       
-         <form action="" method="" id = "form_log">
+         <form action="" method="">
            <label class="item item-input">
            <i class="icon ion-android-social-user"></i>
-              <input type="text" placeholder="jina au namba ya mtumiaji" id="user_name" name ="user_name" />
+              <input type="text" placeholder="jina au namba ya mtumiaji" id="user_name" />
            </label>
            <label class="item item-input">
             <i class="icon ion-briefcase"></i>
-             <input type="password" placeholder="Nywila ya mtumiaji" id="pass" name = "pass" />
+             <input type="password" placeholder="Nywila ya mtumiaji" id="pass" />
              
            </label>
             <button class="button button-full button-positive" onClick="log_in()">Ingia</button>

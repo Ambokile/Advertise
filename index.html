@@ -67,7 +67,7 @@ function mlango(){
 		         }
 	                                                     }
 	 else
-	       alert("server not reachable, please try again");
+	       alert(xmlhttp.readyState + xmlhttp.status );
                                         };
 xmlhttp.open('GET','http://fishpond.site88.net/seine_log_in.php?user='+user_name+'&pass='+password,true);
 xmlhttp.send();

@@ -42,16 +42,11 @@
 		}
 		
 function mlango(){
-    $.ajax({
-    type: "POST",
-    url: "http://fishpond.site88.net/seine_log_in.php",
-    data: jQuery("#form_log").serialize(),
-    cache: false,
-    success:  function(data){
-        alert("sucess");
-    }
-  });
-
+	var query = $('#form_log').serialize();
+        var url = 'http://fishpond.site88.net/seine_log_in.php';
+        $.post(url, query, function (response) {
+         alert (response);
+        });
 }
 
    function upload_profile_img(){

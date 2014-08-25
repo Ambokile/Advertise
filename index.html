@@ -42,37 +42,19 @@
 		}
 		
 function mlango(){
-	 var user_name = document.querySelector("#user_name").value;
-	  var password = document.querySelector("#pass").value;
-	  
-	var xmlhttp;
-	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();
-		}
-     else{
-	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
-		
- xmlhttp.onreadystatechange = function(){
-	  
-	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		 
-		 var id = xmlhttp.responseText.search("success");
-		   if(id != -1){
-			       
-			       document.location.href= "main.html";		   
-			          }
-		   else{
-			     
-		        alert("");
-		         }
-	                                                     }
-	                       };
- var url = 'http://fishpond.site88.net/seine_log_in.php?user='+ user_name+'&pass='+password;
-xmlhttp.open('GET',url,true);
-xmlhttp.send();
-	return false;	
-	}
-	
+	function sendForm(){
+    $.ajax({
+    type: "POST",
+    url: "http://fishpond.site88.net/seine_log_in.php",
+    data: jQuery("#form_log").serialize(),
+    cache: false,
+    success:  function(data){
+        alert("sucess");
+    }
+  });
+
+}
+}
 
    function upload_profile_img(){
 		
@@ -206,7 +188,7 @@ xmlhttp.send();
 				<ion-content>
 						<div class="list list-inset" style="margin-top:20%;">
       
-         <form action="" method="">
+         <form action="" method="" id = "form_log">
            <label class="item item-input">
            <i class="icon ion-android-social-user"></i>
               <input type="text" placeholder="jina au namba ya mtumiaji" id="user_name" />

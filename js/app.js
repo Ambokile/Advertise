@@ -26,7 +26,11 @@ application.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 
 })
-
+application.controller('InfoCtrl', function($scope) {
+  console.log('InfoCtrl');
+});
+ 
+ 
 var app_1 =  angular.module('home', ['ionic'])
 
 app_1.config(function($stateProvider, $urlRouterProvider) {
@@ -51,12 +55,7 @@ app_1.controller('HomeCtrl', function($scope) {
 });
 
 
-application.controller('InfoCtrl', function($scope) {
-  console.log('InfoCtrl');
-});
-  angular.module('account', ['ionic'])
-  
-   angular.module('register', ['ionic'])
+
    
    function ContentController($scope, $ionicSideMenuDelegate) {
   $scope.toggleLeft = function() {
@@ -64,19 +63,3 @@ application.controller('InfoCtrl', function($scope) {
   };
 }
 
-angular.module('testApp', ['ionic'])
-.config(function($stateProvider, $urlRouterProvider) {
-
-  $stateProvider
-  .state('my-popover', {
-    url: '/',
-    templateUrl: 'my-popover.html',
-   // controller: 'HomeCtrl'
-  })
-  
-  $urlRouterProvider.otherwise("/");
-
-})
-.controller('my-popoverCtrl', function($scope) {
-  console.log('my-popoverCtrl');
-});

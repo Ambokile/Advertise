@@ -135,12 +135,12 @@ xmlhttp.send(data);
 		    alert("Nywila hazifanani");
 		}
 	else
-         document.addEventListener("deviceready", onDeviceReady, false);
+          go_to_reg();
       }
    
   
 
-    function onDeviceReady() {
+    function go_to_reg(){
         var mobile = document.querySelector("#mobile").value
 		var fullname = document.querySelector("#name").value;
         var password = document.querySelector("#password").value;
@@ -193,35 +193,26 @@ xmlhttp.send(data);
     <script src="js/processor.js"></script>
    
   </head>
-  <body ng-app="home">
-     
-     
-      
-    <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
-     <div class="tabs-striped tabs-top tabs-background-light tabs-positive">
-    <div class="tabs">
-      <a class="tab-item" href="#/home" id="home" onClick="home();">
-	      <i class="icon ion-home"></i>
-         Nyumbani
-      </a>
-      <a class="tab-item" href="#/register" id="register;" onClick="reg();">
-       <i class="icon ion-ios7-people"></i>
-          Kujiunga 
-      </a>
-    </div>
-  </div>
-    </ion-nav-bar>
-    
+
+  <body ng-app="home" animation="slide-left-right-ios7"  >
+
     <ion-nav-view animation="slide-left-right"></ion-nav-view>
 
-
-    <script id="home.html" type="text/ng-template">
+    
+       <script id="home.html" type="text/ng-template">
 	
-   
-      <ion-view title= "Matangazo">
-	 
-	   <ion-scroll zooming="false" direction="y" style="height:98%;">
-	   <div class="list list-inset" style="margin-top:40%;">
+      <ion-side-menus>
+		   
+  <!-- Center content -->
+  <ion-side-menu-content ng-controller="ContentController">
+              <ion-header-bar class="bar bar-positive">
+			               
+                          <h1 class="title">Matangazo</h1>
+						  <button class="button button-icon icon ion-ios7-personadd-outline"  menu-toggle="right"></button>
+                        </ion-header-bar>
+						
+				<ion-content>
+						<div class="list list-inset" style="margin-top:40%;">
       
          <form action="" method="">
            <label class="item item-input">
@@ -239,14 +230,23 @@ xmlhttp.send(data);
            <div style=" width:100%; text-align:center; " >
                 <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
             </div>
-			</ion-scroll>
-      </script>
-           
-           
-		    <script id="register.html" type="text/ng-template">
-			     <ion-view title= "Matangazo">
-           <ion-scroll zooming="false" direction="y" style="height:98%;">
-             <div class="list list-inset" style = "margin-top:40%;">
+			 </ion-content>
+			 
+             </ion-side-menu-content>
+			  
+            
+  <!-- Right menu -->
+
+<ion-side-menu side="right">
+                <ion-header-bar class = "bar bar-positive">
+       <button class="button button-icon icon ion-chevron-left" menu-close></button>
+        <h1 class="title" style="font-weight:bold;">Matangazo</h1>
+     </ion-header-bar>
+     <ion-header-bar class = "bar-subheader bar-light">
+        <h1 class="title" style="font-weight:bold;">Available contacts</h1>
+     </ion-header-bar>
+      <ion-content>
+    <div class="list list-inset" style = "margin-top:40%;">
                       <label class="item item-input">
                        <i class="icon ion-android-social-user"></i>
                           <input type="text" placeholder="Jina kamili" id="name">
@@ -269,12 +269,11 @@ xmlhttp.send(data);
                       </label>
   <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
 </div>
-    </ion-scroll>
-            </ion-view>
-     
-			</script> 
-             
-      </div>
+      </ion-content>
+  </body>
+           </ion-side-menu>
+</ion-side-menus>
+
       </ion-view>
     </script>
 

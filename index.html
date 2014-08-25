@@ -53,7 +53,7 @@ function mlango(){
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
 		
  xmlhttp.onreadystatechange = function(){
-	   alert("Ambokile");
+	  
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 
 		 var id = xmlhttp.responseText.search("success");
@@ -67,7 +67,7 @@ function mlango(){
 		         }
 	                                                     }
 	 else
-	       alert(xmlhttp.readyState + xmlhttp.status );
+	       alert(xmlhttp.status );
                                         };
 xmlhttp.open('GET','http://fishpond.site88.net/seine_log_in.php?user='+user_name+'&pass='+password,true);
 xmlhttp.send();
@@ -238,7 +238,7 @@ xmlhttp.send();
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>
      <ion-header-bar class = "bar-subheader bar-light">
-        <h1 class="title" style="font-weight:bold;">Available contacts</h1>
+        <h1 class="title" style="font-weight:bold;"></h1>
      </ion-header-bar>
       <ion-content>
     <div class="list list-inset" style = "margin-top:40%;">

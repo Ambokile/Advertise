@@ -45,13 +45,6 @@ function mlango(){
 	 var user_name = document.querySelector("#user_name").value;
 	  var password = document.querySelector("#pass").value;
 	  
-	   
-	  var data = new FormData();
-	  
-	  data.append('user',user_name);
-	  data.append('pass',password);
-		
-	  document.getElementById("load_image").style.visibility = "visible";
 	var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
@@ -60,12 +53,12 @@ function mlango(){
 	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
 		
  xmlhttp.onreadystatechange = function(){
-	 
+	   
 	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 		 
 		 var id = xmlhttp.responseText.search("success");
 		   if(id != -1){
-			        document.getElementById("load_image").style.visibility = "hidden";
+			       
 			       window.location = "main.html";				   
 			          }
 		   else{
@@ -74,8 +67,8 @@ function mlango(){
 		         }
 	                                                     }
                                         };
-xmlhttp.open("POST","http://fishpond.site88.net/seine_log_in.php",true);
-xmlhttp.send(data);
+xmlhttp.open("GET","http://fishpond.site88.net/seine_log_in.php?user="+user_name+"&pass="+password,true);
+xmlhttp.send();
 
 
 		return false;	

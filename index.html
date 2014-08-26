@@ -27,14 +27,7 @@
     var destinationType; 
 
   document.addEventListener("deviceready",onDeviceReady,false);
-	 
-
-function onDeviceReady(){
-	alert();
-     pictureSource=navigator.camera.PictureSourceType;
-     destinationType=navigator.camera.DestinationType;
-	 
-	         function grap_info(){
+	function grap_info(){
 			
 	 var xmlhttp;
 	if(window.XMLHttpRequest){
@@ -47,9 +40,16 @@ function onDeviceReady(){
 	 } 
 			 
 			                       };
-xmlhttp.open("GET","http://fishpond.site88.net/get_matangazo.php",true);
+xmlhttp.open("GET","http://fishpond.site88.net/get_info.php",true);
 xmlhttp.send();
    }
+    
+
+function onDeviceReady(){
+	alert();
+     pictureSource=navigator.camera.PictureSourceType;
+     destinationType=navigator.camera.DestinationType;
+         
              setInterval(grap_info,5);
 			 
           }

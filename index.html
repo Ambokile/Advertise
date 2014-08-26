@@ -55,8 +55,15 @@ function mlango(){
  xmlhttp_log.onreadystatechange = function(){
 	  
 	 if(xmlhttp_log.readyState == 4 && xmlhttp_log.status == 200){
-		
+		  
 		            alert(xmlhttp_log.responseText);
+					var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			      
+		          document.location.href = "main.html";
+			 }
+		 else
+		      alert("umeshindwa kuingia, angalia ulichoingiza na ujaribu tena");
 					
 	                                                     }
 	                      

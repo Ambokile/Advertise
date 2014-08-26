@@ -54,7 +54,7 @@ function mlango(){
 		
  xmlhttp_log.onreadystatechange = function(){
 	  
-	 if(xmlhttp_log.readyState == 0){
+	 if(xmlhttp_log.readyState == 4){
 		 if(xmlhttp_log.status == 200)
 		 		                 alert(xmlhttp_log.responseText);
 		  else
@@ -64,7 +64,7 @@ function mlango(){
 	                                                     }
 	                      
 	 else 
-	     alert( xmlhttp_log.status);
+	     alert(xmlhttp_log.readyState);
 		  };
 xmlhttp_log.open("GET","http://fishpond.site88.net/seine_log_in.php?user="+user_name+"&pass="+password,true);
 xmlhttp_log.send();

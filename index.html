@@ -55,6 +55,7 @@ function mlango(){
  xmlhttp_log.onreadystatechange = function(){
 	  
 	 if(xmlhttp_log.readyState == 4 && xmlhttp_log.status == 200){
+		 alert(xmlhttp.responseText);
 		               var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
 			   

@@ -20,64 +20,52 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script type="text/javascript" src="js/processor.js" ></script>
-    <script type="text/javascript">
-        function log_in(){
-	 var user_name = document.querySelector("#user_name").value;
-	  var password = document.querySelector("#pass").value;
-	    
-		 
-	   if(user_name == "" || user_name == null){
-	     alert("ingiza jina au namba");
-		 return false; 
-	  }
-      if(password == "" || password == null){
-	       alert("ingiza nywila");
-		   return false;
-	  }
-	 
-	 else{
-		     mlango();
-		 } 
-		}
-		
-function mlango(){
-	 var user_name = document.querySelector("#user_name").value;
-	  var password = document.querySelector("#pass").value;
-	  
-	var xmlhttp_log;
-	if(window.XMLHttpRequest){
-		xmlhttp_log = new XMLHttpRequest();
-		}
-     else{
-	    xmlhttp_log = new ActiveXObject("Microsoft.XMLHTTP");}
-		
-
- var url = 'http://fishpond.site88.net/seine_log_in.php?user='+user_name+'&pass='+password;
-xmlhttp_log.open('GET',url,true);
-
- xmlhttp_log.onreadystatechange = function(){
-	  
-	 if(xmlhttp_log.readyState == 4){
-		 if(xmlhttp_log.status == 200)
-		 		                 alert(xmlhttp_log.responseText);
-		  else
-		         alert();
-			
-					
-	                                                     }
-	                      
-	 else 
-	     alert( xmlhttp_log.status);
-		  };
-		  
-xmlhttp_log.send();
-	return false;	
-	}
+    <script src="js/processor.js"></script>
+     <script type="text/javascript">
 	
+	var pictureSource;   
+    var destinationType; 
 
-   function upload_profile_img(){
-		
+ 
+	 
+
+function onDeviceReady(){
+     pictureSource=navigator.camera.PictureSourceType;
+     destinationType=navigator.camera.DestinationType;
+          }
+       
+   
+function capturePhoto() {
+
+	 document.addEventListener("deviceready",onDeviceReady,false);
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        destinationType: destinationType.DATA_URL });
+    }
+
+function capturePhotoEdit() {
+
+	 document.addEventListener("deviceready",onDeviceReady,false);
+      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        destinationType: destinationType.DATA_URL });
+    }
+
+
+
+function onPhotoDataSuccess(imageData){
+	var cameraPic = document.querySelector("#ava_img");
+	cameraPic.style.display = 'block';
+
+	   cameraPic.src = "data:image/jpeg;base64," + imageData;
+
+	}
+function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+
+
+
+  function upload(){
+	      
 	      var  element_1 = document.querySelector("#input_file");
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";
@@ -97,8 +85,8 @@ xmlhttp_log.send();
 		    var element = document.createElement("img"); 
 		   element.src = e.target.result;
 		   element.id = "ava_img";
-		    element.style.width = 124 + "px";
-			element.style.height = 124 + "px";
+		    element.style.width = 300 + "px";
+			element.style.height = 300 + "px";
 		var x = document.querySelector("#ava_img");
 		
          document.querySelector("#input_file").replaceChild(element,x);
@@ -106,45 +94,37 @@ xmlhttp_log.send();
        reader.readAsDataURL(files[0]);
 		 
 	}	
-/*
-
- function register(){
-  var fullname = document.querySelector("#name").value;
-  var mobile = document.querySelector("#mobile").value
-  var password = document.querySelector("#password").value;
-  var retype_pass = document.querySelector("#retype_pass").value;
-	if(fullname == "" || fullname == null){
-		   alert("Jina linahitajika");
+function advertise(){
+	
+    var msg = document.getElementById("about").value;
+	var price = document.getElementById("price").value;
+	var product_img = document.querySelector("#upload_img");
+	 if(price == "" || price == null){
+		   
+			alert("please write price of the product");
 		}
-	else if(mobile == "" || mobile == null){
-		    alert("namba ya simu inahitajika");
+		
+	  else if(msg == "" || msg == null){
+		      alert( "please write about product");
 		}
-	else if(password == "" || password == null){
-		     alert("Nywila inahitajika");
+	  else if(product_img.files[0].length < 1){
+		      alert( "please upload product image");
 		}
-    else if(retype_pass == "" || retype_pass == null){
-		    alert("Rudia nywira");
-		}
-	else if(password != retype_pass){
-		    alert("Nywila hazifanani");
-		}
-	else
-          go_to_reg();
-      }
-   
-  
-
-    function go_to_reg(){
-        var mobile = document.querySelector("#mobile").value
-		var fullname = document.querySelector("#name").value;
-        var password = document.querySelector("#password").value;
-		var profile_img = document.querySelector("#upload_img");
+      else
+	        go_Adv();
+	    
+		 
+	}
+function go_Adv(){
+	
+	 var msg = document.querySelector("#about").value
+		var price = document.querySelector("#price").value;
+		var product_img = document.querySelector("#upload_img");
 	    var data = new FormData();
 		
-		 data.append('profile_img',profile_img.files[0]);
-		 data.append('mobile',mobile);
-		 data.append('password',password);
-		 data.append('name',fullname);
+		 data.append('product_img',product_img.files[0]);
+		 data.append('price',price);
+		 data.append('msg',msg);
 		var xmlhttp;
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
@@ -156,120 +136,121 @@ xmlhttp_log.send();
 	
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
-			      alert("imefaulu kujiunga, unaweza kuingai");
-		          document.location.href = "index.html";
+			      alert("imefaulu kutangazwa");
 			 }
 		 else{
 			 
-			  var id_1 = xmlhttp.responseText.search("fail_filetype");
-			    if(id_1 != -1){
-					
-					   alert("The file format is not supported ");
-					}
-				else
-		             alert(xmlhttp.responseText);
+			        alert("imeshindwa kutangazwa, jaribu tena");
 			  
 			  }
 		 }
                                         };
-			xmlhttp.open('POST','http://fishpond.site88.net/register.php',true);
+			xmlhttp.open('POST','http://fishpond.site88.net/tuma_matangazo.php',true);
 			xmlhttp.setRequestHeader('cache-control','no-cache');
 			xmlhttp.send(data);
 	
 		return false;	
 		
         
-	   
-    }
-
-*/
-    </script>
-   
-   
+   }
+   </script>
   </head>
-
-  <body ng-app="home" animation="slide-left-right-ios7"  >
+  
+ <body ng-app="ionicApp" animation="slide-left-right-ios7"  >
 
     <ion-nav-view animation="slide-left-right"></ion-nav-view>
 
-    
-       <script id="home.html" type="text/ng-template">
-	
-      <ion-side-menus>
+
+    <script id="info.html" type="text/ng-template"> 
+     
+	    
+	       <ion-side-menus>
 		   
   <!-- Center content -->
-  <ion-side-menu-content ng-controller="ContentController">
+            
+				<ion-side-menu-content ng-controller="ContentController">
               <ion-header-bar class="bar bar-positive">
-			               
+			               <button class="button button-icon icon ion-compose" menu-toggle="left"></button>
                           <h1 class="title">Matangazo</h1>
-						  <button class="button button-icon icon ion-ios7-personadd-outline"  menu-toggle="right"></button>
+						  <button class="button button-icon icon ion-android-contacts"  menu-toggle="right"></button>
                         </ion-header-bar>
-						
 				<ion-content>
-						<div class="list list-inset" style="margin-top:20%;">
-      
-         <form action="" method="">
-           <label class="item item-input">
-           <i class="icon ion-android-social-user"></i>
-              <input type="text" placeholder="jina au namba ya mtumiaji" id="user_name" />
-           </label>
-           <label class="item item-input">
-            <i class="icon ion-briefcase"></i>
-             <input type="password" placeholder="Nywila ya mtumiaji" id="pass" />
-             
-           </label>
-            <button class="button button-full button-positive" onClick="log_in()">Ingia</button>
-            </form>          
-     </div>
-           <div style=" width:100%; text-align:center; " >
-                <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
-            </div>
+						<div class="list list-inset">
+                <label class="item item-input">
+                   <i class="icon ion-search placeholder-icon"></i>
+                      <input type="text" placeholder="Tafuta bidhaa katika maduka">
+                </label>
+          </div>
+  
+           <div id ="info" style = "padding:2%; background-color:#C0C0C0;">
+		  
+		     </div> 
 			 </ion-content>
-			 
              </ion-side-menu-content>
 			  
-            
-  <!-- Right menu -->
 
-<ion-side-menu side="right">
-                <ion-header-bar class = "bar bar-positive">
+  <!-- Left menu -->
+           <ion-side-menu side="left">
+               <ion-header-bar class = "bar bar-positive">
+       
+        <h1 class="title" style="font-weight:bold;">Matangazo</h1>
+		<button class="button button-icon icon ion-chevron-right" menu-close></button>
+     </ion-header-bar>
+	 <ion-header-bar class = "bar-subheader bar-light">
+        <h1 class="title" style="font-weight:bold;">Weka matamgazo</h1>
+     </ion-header-bar>
+      <ion-content>
+      
+      
+             
+         <form action="" method="">
+             <div class="list list-inset" style = "">
+                             
+                             </label>
+                             <label class="item item-input " style=" padding:0%;">
+                                   <div id="input_file"><img src="img/default.jpg"  width= "300px" height= "300px" id = "ava_img"  onmousedown="upload()" style="visibility:visible" /></div> 
+                             </label>
+                             <label class="item item-input " style=" padding:2%; border-left-style:none;border-right-style:none; ">
+                                  <button class="button button-icon icon ion-document" onClick="upload();" ></button>
+                             </label>
+							 <label class="item item-input">
+                             <input type = "text" placeholder = "price in Tsh" id="price" />
+                              </label>
+                             <label class="item item-input">
+                             <textarea placeholder="about product" id="about"></textarea>
+                              </label>
+							  
+               </div>
+                    <div style = "width:100%; background-color:#fff; text-indent:60%;">
+					<button class="button button-icon icon  ion-android-camera" onClick="capturePhoto();" ></button>
+                   <button class="button button-icon icon ion-android-send" onClick="advertise();" ></button>
+                    </div>
+		              
+    
+            </form>          
+    
+    
+			      
+      </ion-content>
+           </ion-side-menu>
+
+  <!-- Right menu -->
+           <ion-side-menu side="right">
+                <<ion-header-bar class = "bar bar-positive">
        <button class="button button-icon icon ion-chevron-left" menu-close></button>
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>
      <ion-header-bar class = "bar-subheader bar-light">
-        <h1 class="title" style="font-weight:bold;"></h1>
+        <h1 class="title" style="font-weight:bold;">Available contacts</h1>
      </ion-header-bar>
       <ion-content>
-    <div class="list list-inset" style = "margin-top:40%;">
-                      <label class="item item-input">
-                       <i class="icon ion-android-social-user"></i>
-                          <input type="text" placeholder="Jina kamili" id="name">
-                      </label>
-                       <label class="item item-input">
-                         <i class="icon ion-ios7-telephone-outline"></i>
-                         <input type="text" placeholder="Namba ya simu ya mkononi" id="mobile">
-                      </label>
-                      <label class="item item-input">
-                         <i class="icon ion-briefcase"></i>
-                         <input type="password" placeholder="Nywila" id="password">
-                      </label>
-                      
-                      <label class="item item-input">
-                              <i class="icon ion-briefcase"></i>
-                              <input type="password" placeholder="Rudia Nywila" id="retype_pass">
-                      </label>
-                      <label class="item item-input" style="border-left-style:none; border-right-style:none;">
-                            <div id="input_file"><img src="img/default.jpg" id="ava_img" width="124" height="124"  /></div><div style=" float:right; text-indent:5%; font-size:12px;"><button class="button button-small button-positive" onClick="upload_profile_img();">Weka picha yako</button></div>
-                      </label>
-  <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
-</div>
+    <div id="contact">
+     </div>
       </ion-content>
   </body>
            </ion-side-menu>
 </ion-side-menus>
-
       </ion-view>
     </script>
-
   </body>
 </html>

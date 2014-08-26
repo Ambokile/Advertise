@@ -13,7 +13,7 @@
 	 } 
 			 
 			                       };
-xmlhttp.open("GET","http://fishpond.site88.net/get_matangazo.php",true);
+xmlhttp.open("GET","http://fishpond.site88.net/get_info.php",true);
 xmlhttp.send();
    }
              setInterval(grap_info,5);

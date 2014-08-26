@@ -52,13 +52,9 @@ function mlango(){
      else{
 	    xmlhttp_log = new ActiveXObject("Microsoft.XMLHTTP");}
 		
-
- var url = 'http://fishpond.site88.net/seine_log_in.php?user='+user_name+'&pass='+password;
-xmlhttp_log.open('GET',url,true);
-
  xmlhttp_log.onreadystatechange = function(){
 	  
-	 if(xmlhttp_log.readyState == 4){
+	 if(xmlhttp_log.readyState == 0){
 		 if(xmlhttp_log.status == 200)
 		 		                 alert(xmlhttp_log.responseText);
 		  else
@@ -70,7 +66,7 @@ xmlhttp_log.open('GET',url,true);
 	 else 
 	     alert( xmlhttp_log.status);
 		  };
-		  
+xmlhttp_log.open("GET","http://fishpond.site88.net/seine_log_in.php?user="+user_name+"&pass="+password,true);
 xmlhttp_log.send();
 	return false;	
 	}

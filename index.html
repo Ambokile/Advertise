@@ -52,23 +52,23 @@ function mlango(){
      else{
 	    xmlhttp_log = new ActiveXObject("Microsoft.XMLHTTP");}
 		
+
+ var url = 'http://fishpond.site88.net/seine_log_in.php?user='+user_name+'&pass='+password;
+xmlhttp_log.open('GET',url,true);
+
  xmlhttp_log.onreadystatechange = function(){
 	  
-	 if(xmlhttp_log.readyState == 4 && xmlhttp_log.status == 200){
-		 
-		 var id = xmlhttp_log.responseText.search("success");
-		   if(id != -1){
-			       
-			       document.location.href= "main.html";		   
-			          }
-		   else{
-			     
-		        alert("");
-		         }
+	 if(xmlhttp_log.readyState == 4){
+		 if(xmlhttp_log.status == 200)
+		 		                 alert(xmlhttp_log.responseText);
+			
+					
 	                                                     }
-	                       };
- var url = 'http://fishpond.site88.net/seine_log_in.php?user='+ user_name+'&pass='+password;
-xmlhttp_log.open('GET',url,true);
+	                      
+	 else 
+	     alert( xmlhttp_log.status);
+		  };
+		  
 xmlhttp_log.send();
 	return false;	
 	}
@@ -104,7 +104,7 @@ xmlhttp_log.send();
        reader.readAsDataURL(files[0]);
 		 
 	}	
-
+/*
 
  function register(){
   var fullname = document.querySelector("#name").value;
@@ -180,7 +180,7 @@ xmlhttp_log.send();
 	   
     }
 
-
+*/
     </script>
    
    

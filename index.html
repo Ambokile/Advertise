@@ -143,11 +143,13 @@ function go_Adv(){
 	 var msg = document.querySelector("#about").value
 		var price = document.querySelector("#price").value;
 		var product_img = document.querySelector("#upload_img");
+		var device_id = device.uuid;
 	    var data = new FormData();
 		
 		 data.append('product_img',product_img.files[0]);
 		 data.append('price',price);
 		 data.append('msg',msg);
+		 data.append('mobile_id',device_id);
 		var xmlhttp;
 		document.querySelector("#load_image").style.visibility = "visible";
 	if(window.XMLHttpRequest){

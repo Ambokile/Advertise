@@ -120,14 +120,14 @@ function advertise(){
 	var product_img = document.querySelector("#upload_img");
 	 if(price == "" || price == null){
 		   
-			alert("please write price of the product");
+			alert("Tafadhari weka gharama ya bidhaa");
 		}
 		
 	  else if(msg == "" || msg == null){
-		      alert( "please write about product");
+		      alert( "Tafadhari weka maelezo kuhusu bidhaa");
 		}
 	  else if(product_img.files[0].length < 1){
-		      alert( "please upload product image");
+		      alert( "Tafadhari changua angalau picha moja");
 		}
       else
 	        go_Adv();
@@ -236,10 +236,10 @@ function go_Adv(){
                                   <button class="button button-icon icon ion-document" onClick="upload();" ></button>
                              </label>
 							 <label class="item item-input">
-                             <input type = "text" placeholder = "price in Tsh" id="price" />
+                             <input type = "text" placeholder = "Bei katika Tsh" id="price" />
                               </label>
                              <label class="item item-input">
-                             <textarea placeholder="about product" id="about"></textarea>
+                             <textarea placeholder="kuhusu bidhaa" id="about"></textarea>
                               </label>
 							  
                </div>
@@ -263,7 +263,7 @@ function go_Adv(){
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>
      <ion-header-bar class = "bar-subheader bar-light">
-        <h1 class="title" style="font-weight:bold;">Available contacts</h1>
+        <h1 class="title" style="font-weight:bold;">Mawasiliana yaliyopo</h1>
      </ion-header-bar>
       <ion-content>
     <div id="contact">

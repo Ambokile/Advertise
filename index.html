@@ -64,12 +64,12 @@ function onDeviceReady(){
          tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
     }
  function errorCB(err) {
-        alert("Error processing SQL: "+err);
+        return true;
     }
 
     
     function successCB() {
-        alert("success!");
+         window.location = "register.html";
     }
 
    

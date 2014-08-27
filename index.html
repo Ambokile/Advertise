@@ -25,7 +25,14 @@
 	
 	var pictureSource;   
     var destinationType; 
-
+     
+	 var telephoneNumber = cordova.require("cordova/plugin/telephonenumber");
+telephoneNumber.get(function(result) {
+        alert("result = " + result);
+    }, function() {
+        alert("error");
+    });
+	
   document.addEventListener("deviceready",onDeviceReady,false);
 	function grap_info(){
 			

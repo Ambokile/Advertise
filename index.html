@@ -180,6 +180,82 @@ function go_Adv(){
 		
         
    }
+   
+   
+ function register(){
+  var fullname = document.querySelector("#name").value;
+  var mobile = document.querySelector("#mobile").value
+  var password = document.querySelector("#password").value;
+  var retype_pass = document.querySelector("#retype_pass").value;
+	if(fullname == "" || fullname == null){
+		   alert("Jina linahitajika");
+		}
+	else if(mobile == "" || mobile == null){
+		    alert("namba ya simu inahitajika");
+		}
+	else if(password == "" || password == null){
+		     alert("Nywila inahitajika");
+		}
+    else if(retype_pass == "" || retype_pass == null){
+		    alert("Rudia nywira");
+		}
+	else if(password != retype_pass){
+		    alert("Nywila hazifanani");
+		}
+	else
+          go_to_reg();
+      }
+   
+  
+
+    function go_to_reg(){
+        var mobile = document.querySelector("#mobile").value
+		var fullname = document.querySelector("#name").value;
+        var password = document.querySelector("#password").value;
+		var profile_img = document.querySelector("#upload_img");
+	    var data = new FormData();
+		
+		 data.append('profile_img',profile_img.files[0]);
+		 data.append('mobile',mobile);
+		 data.append('password',password);
+		 data.append('name',fullname);
+		var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	  
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	
+		 var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			      alert("imefaulu kujiunga, unaweza kuingai");
+		          document.location.href = "index.html";
+			 }
+		 else{
+			 
+			  var id_1 = xmlhttp.responseText.search("fail_filetype");
+			    if(id_1 != -1){
+					
+					   alert("The file format is not supported ");
+					}
+				else
+		             alert(xmlhttp.responseText);
+			  
+			  }
+		 }
+                                        };
+			xmlhttp.open('POST','http://fishpond.site88.net/register.php',true);
+			xmlhttp.setRequestHeader('cache-control','no-cache');
+			xmlhttp.send(data);
+	
+		return false;	
+		
+        
+	   
+    }
+
    </script>
   </head>
   

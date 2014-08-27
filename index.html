@@ -253,7 +253,7 @@ function go_Adv(){
 		 data.append('name',fullname);
 		 data.append('id',device_uuid);
 		var xmlhttp;
-		
+		document.querySelector("#load_image_profile").style.visibility = "visible";
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
 	else{
@@ -264,18 +264,13 @@ function go_Adv(){
 	
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
+			 document.querySelector("#load_image_profile").style.visibility = "hidden";
 			      alert("umefaulu kujiunga, unaweza kuendelea");
 		         
 			 }
 		 else{
-			 
-			  var id_1 = xmlhttp.responseText.search("fail_filetype");
-			    if(id_1 != -1){
-					
-					   alert("The file format is not supported ");
-					}
-				else
-		             alert(xmlhttp.responseText);
+			 document.querySelector("#load_image_profile").style.visibility = "hidden";
+		             alert("umeshindwa kujiunga, jaribu tena");
 			  
 			  }
 		 }
@@ -407,6 +402,7 @@ function go_Adv(){
                       <label class="item item-input" style="border-left-style:none; border-right-style:none;">
                             <div id="input_file_profile"><img src="img/default.jpg" id="ava_img_profile" width="124" height="124"  /></div><div style=" float:right; text-indent:5%; font-size:12px;"><button class="button button-small button-positive" onClick="upload_profile_img();">Weka picha yako</button></div>
                       </label>
+					   <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image_profile"></i></span>
   <button class="button button-block button-balanced" onClick="register();">Jisajili</button>
 </div>
       </ion-content>

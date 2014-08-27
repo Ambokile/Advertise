@@ -87,7 +87,7 @@ function onFail(message) {
 
   function upload(){
 	      
-	      var  element_1 = document.querySelector("#input_file");
+	     
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";
 		   element_2.id = "upload_img";
@@ -192,10 +192,10 @@ function go_Adv(){
 		   element_2.style.visibility = "hidden";
 		   document.body.appendChild(element_2);
 		   document.querySelector("#upload_img_profile").click();
-		   document.querySelector("#upload_img_profile").onchange = img;
+		   document.querySelector("#upload_img_profile").onchange = img_profile;
 		   return false; 
 	 }
-    function img(){
+    function img_profile(){
 	 
 	   var files = this.files;
        var reader = new FileReader();

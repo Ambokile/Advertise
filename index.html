@@ -149,6 +149,7 @@ function go_Adv(){
 		 data.append('price',price);
 		 data.append('msg',msg);
 		var xmlhttp;
+		document.querySelector("#load_image").style.visibility = "visible";
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
 	else{
@@ -159,14 +160,11 @@ function go_Adv(){
 	
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
-			      populateDB(tx);
-				   tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-				    var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-                    db.transaction(queryDB, errorCB);
+			      document.querySelector("#load_image").style.visibility = "hidden";
 			      alert("imefaulu kutangazwa");
 			 }
 		 else{
-			 
+			 document.querySelector("#load_image").style.visibility = "hidden";
 			        alert("imeshindwa kutangazwa, jaribu tena");
 			  
 			  }
@@ -255,6 +253,7 @@ function go_Adv(){
 		 data.append('name',fullname);
 		 data.append('id',device_uuid);
 		var xmlhttp;
+		
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();}
 	else{
@@ -362,7 +361,9 @@ function go_Adv(){
                               </label>
 							  
                </div>
+			         <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
+					 
 					<button class="button button-icon icon  ion-android-camera" onClick="capturePhoto();" ></button>
                    <button class="button button-icon icon ion-android-send" onClick="advertise();" ></button>
                     </div>

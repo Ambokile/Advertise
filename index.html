@@ -150,6 +150,7 @@ function advertise(){
 		   element_4.appendChild(element_5);
 		    var element_6 = document.createElement("input");
 			element_6.type = "text";
+			element_6.id ="passcode";
 			element_6.placeholder = "ingiza neno la siri";
 		   element_5.appendChild(element_6);
 		    var element_ = document.createElement("div");
@@ -160,10 +161,56 @@ function advertise(){
 		   element_5.appendChild(element_7);
 		 element_7.innerHTML = "Tangaza";
 		  element_.appendChild(element_7);
+		  element_7.onclick = send_tangazo;
+		   var element_img = document.createElement("div");
+			element_img.style.padding = 1 + "%";
+			 element_3.appendChild(element_img);
+			  var element_load_img = document.createElement("i");
+			element_load_img.className = "icon ion-loading-c";
+			element_load_img.id = "load_image";
+			element_load_img.style.visibility = "hidden";
+			 element_img.appendChild(element_load_img);
 	       // go_Adv();
 	                   }
-		 
 	}
+	function send_tangazo(){
+		 
+		var passcode = document.querySelector("#passcode");
+	    var data = new FormData();
+		
+		 data.append('passcode',passcode);
+		var xmlhttp;
+		document.querySelector("#load_image").style.visibility = "visible";
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	  
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+	
+		 var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			      document.querySelector("#load_image").style.visibility = "hidden";
+			      alert("imefaulu kutangazwa");
+			 }
+		 else{
+			 document.querySelector("#load_image").style.visibility = "hidden";
+			        alert("imeshindwa kutangazwa, jaribu tena");
+			  
+			  }
+		 }
+                                        };
+			xmlhttp.open('POST','http://fishpond.site88.net/tuma_matangazo.php',true);
+			xmlhttp.setRequestHeader('cache-control','no-cache');
+			xmlhttp.send(data);
+	
+		return false;	
+		
+        
+		
+		
+		}
 	
 function remove(){
 
@@ -390,7 +437,7 @@ function go_Adv(){
                               </label>
 							  
                </div>
-			         <span style="margin-left:5%;" ><i class="icon ion-loading-c" style= "visibility:hidden;" id="load_image"></i></span>
+			        
                     <div style = "width:100%; background-color:#fff; text-indent:60%;">
 					 
 					<button class="button button-icon icon  ion-android-camera" onClick="capturePhoto();" ></button>

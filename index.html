@@ -143,15 +143,17 @@ function advertise(){
 	var price = document.getElementById("price").value;
 	var product_img = document.querySelector("#upload_img");
 	 if(price == "" || price == null){
-		   custome_alert("Tafadhari weka gharama ya bidhaa")
+		   custome_alert("Tafadhari weka gharama ya bidhaa");
 			
 		}
 		
 	  else if(msg == "" || msg == null){
-		      alert( "Tafadhari weka maelezo kuhusu bidhaa");
+		   custome_alert("Tafadhari  weka maelezo kuhusu bidhaa");
+		     
 		}
 	  else if(product_img.files[0].length < 1){
-		      alert( "Tafadhari changua angalau picha moja");
+		  custome_alert("Tafadhari changua angalau picha moja");
+		     
 		}
       else{
 		  var element = document.createElement("div");
@@ -218,8 +220,8 @@ function advertise(){
 			 }
 		 else{
 			 document.querySelector("#load_image").style.visibility = "hidden";
-			        alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena");
-			  
+			  custome_alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena");
+			       
 			  }
 		 }
                                         };
@@ -264,7 +266,8 @@ function go_Adv(){
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
 			      document.querySelector("#load_image").style.visibility = "hidden";
-			      alert("imefaulu kutangazwa");
+				   custome_alert("imefaulu kutangazwa");
+			     
 				   document.body.removeChild(document.querySelector(".varify"));
 	               document.body.removeChild(document.querySelector(".varify_form"));
 				   document.querySelector("#price").innerHTML = "";
@@ -273,7 +276,8 @@ function go_Adv(){
 			 }
 		 else{
 			 document.querySelector("#load_image").style.visibility = "hidden";
-			        alert("imeshindwa kutangazwa, jaribu tena");
+			  custome_alert("imeshindwa kutangazwa, jaribu tena");
+			       
 			  
 			  }
 		 }
@@ -327,19 +331,24 @@ function go_Adv(){
   var retype_pass = document.querySelector("#retype_pass").value;
   
 	if(fullname == "" || fullname == null){
-		   alert("Jina linahitajika");
+		   custome_alert("Jina linahitajika");
+		   
 		}
 	else if(mobile == "" || mobile == null){
-		    alert("namba ya simu inahitajika");
+		 custome_alert("namba ya simu inahitajika");
+		    
 		}
 	else if(password == "" || password == null){
-		     alert("Nywila inahitajika");
+		 custome_alert("Nywila inahitajika");
+		     
 		}
     else if(retype_pass == "" || retype_pass == null){
-		    alert("Rudia nywira");
+		 custome_alert("Rudia nywira");
+		  
 		}
 	else if(password != retype_pass){
-		    alert("Nywila hazifanani");
+		 custome_alert("Nywila hazifanani");
+		  
 		}
 	else
           go_to_reg();
@@ -373,12 +382,14 @@ function go_Adv(){
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
 			 document.querySelector("#load_image_profile").style.visibility = "hidden";
-			      alert("umefaulu kujiunga, unaweza kuendelea");
+			 custome_alert("umefaulu kujiunga, unaweza kuendelea");
+			    
 		         
 			 }
 		 else{
 			 document.querySelector("#load_image_profile").style.visibility = "hidden";
-		             alert("umeshindwa kujiunga, jaribu tena");
+			  custome_alert("umeshindwa kujiunga, jaribu tena");
+		          
 			  
 			  }
 		 }

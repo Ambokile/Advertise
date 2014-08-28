@@ -131,13 +131,24 @@ function advertise(){
 	  else if(product_img.files[0].length < 1){
 		      alert( "Tafadhari changua angalau picha moja");
 		}
-      else
-	        go_Adv();
-	    
+      else{
+		  var element = document.createElement("div");
+		  element.className = "varify";
+		  document.body.appendChild(element);
+		  element.onclick = remove;
+		  var element_2 = document.createElement("div");
+		  element_2.className = "varify_form";
+		  document.body.appendChild(element_2);
+	       // go_Adv();
+	                   }
 		 
 	}
 	
+function remove(){
 
+	   document.body.removeChild(document.querySelector(".varify"));
+	    document.body.removeChild(document.querySelector(".varify_form"));
+	}
 function go_Adv(){
 	
 	 var msg = document.querySelector("#about").value

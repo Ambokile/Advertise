@@ -21,3 +21,27 @@ a:hover{
 .button-icon{
 	      size:12px;
 	 }
+.varify{
+	position:fixed;
+	top:0px;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	opacity:.75;
+	left:0px;
+	z-index:1;
+}
+.varify_form{
+	  position:fixed;
+	  top:50%;
+	  left:10%;
+	  width:80%;
+	  height:30%;
+	  background-color:#fff;
+	  z-index:2;
+	  opacity:1;
+	  
+	}
+	
+	
+	

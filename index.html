@@ -149,7 +149,7 @@ function advertise(){
 		  element_5.className = "item-input-wrapper";
 		   element_4.appendChild(element_5);
 		    var element_6 = document.createElement("input");
-			element_6.type = "text";
+			element_6.type = "password";
 			element_6.id ="passcode";
 			element_6.placeholder = "ingiza neno la siri";
 		   element_5.appendChild(element_6);
@@ -163,7 +163,7 @@ function advertise(){
 		  element_.appendChild(element_7);
 		  element_7.onclick = send_tangazo;
 		   var element_img = document.createElement("div");
-			element_img.style.padding = 1 + "%";
+			element_img.style.padding = 0 + "%";
 			 element_3.appendChild(element_img);
 			  var element_load_img = document.createElement("i");
 			element_load_img.className = "icon ion-loading-c";
@@ -196,7 +196,7 @@ function advertise(){
 			 }
 		 else{
 			 document.querySelector("#load_image").style.visibility = "hidden";
-			        alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena");
+			        alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena" + xmlhttp.responseText);
 			  
 			  }
 		 }

@@ -270,8 +270,6 @@ function go_Adv(){
 			     
 				   document.body.removeChild(document.querySelector(".varify"));
 	               document.body.removeChild(document.querySelector(".varify_form"));
-				   document.querySelector("#price").innerHTML = "";
-				   document.querySelector("#about").innerHTML = "";
 				   document.querySelector("#first_button").click();
 			 }
 		 else{
@@ -383,6 +381,9 @@ function go_Adv(){
 		 if(id != -1 ){
 			 document.querySelector("#load_image_profile").style.visibility = "hidden";
 			 custome_alert("umefaulu kujiunga, unaweza kuendelea");
+			 document.body.removeChild(document.querySelector(".varify"));
+	               document.body.removeChild(document.querySelector(".varify_form"));
+				   document.querySelector("#second_button").click();
 			    
 		         
 			 }
@@ -434,7 +435,7 @@ function go_Adv(){
 			 </ion-content>
 			 <ion-footer-bar class="bar bar-positive" style="padding:2;">
 			               
-                <label class="item item-input" style="width:100%";">
+                <label class="item item-input" style="width:100%">
                    <i class="icon ion-search placeholder-icon"></i>
                       <input type="text" style="font-size:12px;"  placeholder="Tafuta bidhaa katika maduka">
                 </label>
@@ -493,7 +494,7 @@ function go_Adv(){
   <!-- Right menu -->
            <ion-side-menu side="right">
                  <ion-header-bar class = "bar bar-positive">
-       <button class="button button-icon icon ion-chevron-left" menu-close></button>
+       <button class="button button-icon icon ion-chevron-left" menu-close id = "second_button"></button>
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
      </ion-header-bar>
      <ion-header-bar class = "bar-subheader bar-light">

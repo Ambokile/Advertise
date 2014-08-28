@@ -170,15 +170,16 @@ function advertise(){
 			element_load_img.id = "load_image";
 			element_load_img.style.visibility = "hidden";
 			 element_img.appendChild(element_load_img);
-	       // go_Adv();
+	       
 	                   }
 	}
 	function send_tangazo(){
 		 
 		var passcode = document.querySelector("#passcode");
 	    var data = new FormData();
-		
+		var id = device.uuid;
 		 data.append('passcode',passcode);
+		 data.append('id',id);
 		var xmlhttp;
 		document.querySelector("#load_image").style.visibility = "visible";
 	if(window.XMLHttpRequest){
@@ -191,17 +192,16 @@ function advertise(){
 	
 		 var id = xmlhttp.responseText.search("success");
 		 if(id != -1 ){
-			      document.querySelector("#load_image").style.visibility = "hidden";
-			      alert("imefaulu kutangazwa");
+			      go_Adv();
 			 }
 		 else{
 			 document.querySelector("#load_image").style.visibility = "hidden";
-			        alert("imeshindwa kutangazwa, jaribu tena");
+			        alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena");
 			  
 			  }
 		 }
                                         };
-			xmlhttp.open('POST','http://fishpond.site88.net/tuma_matangazo.php',true);
+			xmlhttp.open('POST','http://fishpond.site88.net/verify.php',true);
 			xmlhttp.setRequestHeader('cache-control','no-cache');
 			xmlhttp.send(data);
 	

@@ -33,10 +33,10 @@ a:hover{
 }
 .varify_form{
 	  position:fixed;
-	  top:50%;
+	  top:30%;
 	  left:10%;
 	  width:80%;
-	  height:30%;
+	  height:auto;
 	  background-color:#fff;
 	  z-index:2;
 	  opacity:1;

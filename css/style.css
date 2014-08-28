@@ -46,8 +46,8 @@ a:hover{
 .varify_alert{
 	  position:fixed;
 	  top:30%;
-	  left:20%;
-	  width:auto;
+	  left:10%;
+	  width:80%;
 	  height:20%;
 	  background-color:#00f;
 	  z-index:2;

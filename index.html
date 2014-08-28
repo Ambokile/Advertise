@@ -45,6 +45,26 @@
 	   document.body.removeChild(document.querySelector(".varify"));
 	    document.body.removeChild(document.querySelector(".varify_alert"));
 	 }
+function Buy(){
+	
+	      var element = document.createElement("div");
+		  element.className = "varify";
+		  document.body.appendChild(element);
+		  element.onclick = remove_alert;
+		  var element_2 = document.createElement("div");
+		  element_2.className = "buy";
+		  document.body.appendChild(element_2);
+		  var element_3 = document.createElement("div");
+		  element_3.className = "buy_head";
+		  element_2.appendChild(element_3);
+		  element_3.innerHTML = ""
+		   var element_4 = document.createElement("div");
+		  element_4.className = "buy_msg";
+		  element_2.appendChild(element_4);
+		  
+	       return false;
+		   
+	}
 	var pictureSource;   
     var destinationType; 
      

@@ -46,23 +46,27 @@ a:hover{
 .varify_alert{
 	  position:fixed;
 	  top:30%;
-	  left:10%;
-	  width:80%;
-	  height:40%;
-	  background-color:#993;
+	  left:20%;
+	  width:auto;
+	  height:20%;
+	  background-color:#00f;
 	  z-index:2;
 	  opacity:1;
+	  color:#fff;
+	  border:#C0C0C0 thick solid;
 	  
 	}
 .seine_head{
 	   width:100%;
-	   height:40%;
+	   height:20%;
 	   border-bottom:#C0C0C0 thin solid;
-	   padding:5%;	   
+	   padding:1%;
+	   font-weight:bolder;
+	   text-indent:18%;	   
 	}
 .seine_msg{
 	   width:100%;
-	   height:60%;
-	  	   
+	   height:auto;
+	  	padding:5%;
 	}			
 	

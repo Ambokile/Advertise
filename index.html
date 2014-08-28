@@ -26,7 +26,7 @@
 		   var element = document.createElement("div");
 		  element.className = "varify";
 		  document.body.appendChild(element);
-		  element.onclick = remove;
+		  element.onclick = remove_alert;
 		  var element_2 = document.createElement("div");
 		  element_2.className = "varify_alert";
 		  document.body.appendChild(element_2);
@@ -40,6 +40,11 @@
 		  element_4.innerHTML = tx
 	       return false;
 		}
+ function remove_alert(){
+	     
+	   document.body.removeChild(document.querySelector(".varify"));
+	    document.body.removeChild(document.querySelector(".varify_alert"));
+	 }
 	var pictureSource;   
     var destinationType; 
      

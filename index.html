@@ -176,7 +176,6 @@ function advertise(){
 	function send_tangazo(){
 		 
 		var passcode = document.querySelector("#passcode").value;
-		alert(passcode);
 	    var data = new FormData();
 		var id = device.uuid;
 		 data.append('passcode',passcode);
@@ -197,7 +196,7 @@ function advertise(){
 			 }
 		 else{
 			 document.querySelector("#load_image").style.visibility = "hidden";
-			        alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena" + xmlhttp.responseText);
+			        alert("imeshindwa kutangazwa, angalia ulichoingiza na ujaribu tena");
 			  
 			  }
 		 }

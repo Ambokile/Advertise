@@ -22,7 +22,24 @@
     <script src="js/app.js"></script>
     <script src="js/processor.js"></script>
      <script type="text/javascript">
-	
+	function custome_alert(tx){
+		   var element = document.createElement("div");
+		  element.className = "varify";
+		  document.body.appendChild(element);
+		  element.onclick = remove;
+		  var element_2 = document.createElement("div");
+		  element_2.className = "varify_alert";
+		  document.body.appendChild(element_2);
+		  var element_3 = document.createElement("div");
+		  element_3.className = "seine_head";
+		  element_2.appendChild(element_3);
+		  element_3.innerHTML = "seine"
+		   var element_4 = document.createElement("div");
+		  element_4.className = "seine_msg";
+		  element_2.appendChild(element_4);
+		  element_4.innerHTML = tx
+	       return false;
+		}
 	var pictureSource;   
     var destinationType; 
      
@@ -121,8 +138,8 @@ function advertise(){
 	var price = document.getElementById("price").value;
 	var product_img = document.querySelector("#upload_img");
 	 if(price == "" || price == null){
-		   
-			alert("Tafadhari weka gharama ya bidhaa");
+		   custome_alert("Tafadhari weka gharama ya bidhaa")
+			
 		}
 		
 	  else if(msg == "" || msg == null){

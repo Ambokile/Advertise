@@ -50,7 +50,7 @@ function Buy(){
 	      var element = document.createElement("div");
 		  element.className = "varify";
 		  document.body.appendChild(element);
-		  element.onclick = remove_alert;
+		  element.onclick = remove_buy;
 		  var element_2 = document.createElement("div");
 		  element_2.className = "buy";
 		  document.body.appendChild(element_2);
@@ -64,6 +64,12 @@ function Buy(){
 		  
 	       return false;
 		   
+	}
+
+function remove_buy(){
+	    
+	   document.body.removeChild(document.querySelector(".varify"));
+	    document.body.removeChild(document.querySelector(".buy"));
 	}
 	var pictureSource;   
     var destinationType; 

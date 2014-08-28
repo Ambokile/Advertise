@@ -244,6 +244,11 @@ function go_Adv(){
 		 if(id != -1 ){
 			      document.querySelector("#load_image").style.visibility = "hidden";
 			      alert("imefaulu kutangazwa");
+				   document.body.removeChild(document.querySelector(".varify"));
+	               document.body.removeChild(document.querySelector(".varify_form"));
+				   document.querySelector("#price").innerHTML = "";
+				   document.querySelector("#about").innerHTML = "";
+				   document.querySelector("#first_button").click();
 			 }
 		 else{
 			 document.querySelector("#load_image").style.visibility = "hidden";
@@ -411,7 +416,7 @@ function go_Adv(){
                <ion-header-bar class = "bar bar-positive">
        
         <h1 class="title" style="font-weight:bold;">Matangazo</h1>
-		<button class="button button-icon icon ion-chevron-right" menu-close></button>
+		<button class="button button-icon icon ion-chevron-right" menu-close id = "first_button"></button>
      </ion-header-bar>
 	 <ion-header-bar class = "bar-subheader bar-light">
         <h1 class="title" style="font-weight:bold;">Weka matamgazo</h1>

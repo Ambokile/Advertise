@@ -175,7 +175,8 @@ function advertise(){
 	}
 	function send_tangazo(){
 		 
-		var passcode = document.querySelector("#passcode");
+		var passcode = document.querySelector("#passcode").value;
+		alert(passcode);
 	    var data = new FormData();
 		var id = device.uuid;
 		 data.append('passcode',passcode);

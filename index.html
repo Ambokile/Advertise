@@ -80,6 +80,7 @@ function Buy(){
 		  element_4.appendChild(element_7);
 		  var element_8 = document.createElement("input");
 		  element_8.type = "text";
+		  element_8.id = "choice";
 		  element_8.style.backgroundColor = "#000";
 		  element_8.style.borderBottom ="#fff thin solid";
 		  element_8.style.color = "#fff";
@@ -115,9 +116,12 @@ function Buy(){
 		   
 	}
 
-function put_number(tx){
+function put_number(){
+	       var input_choice = document.querySelector("#choice").value;
+		     if(input_choice == 1){
+				 remove_buy();
 	      var element = document.createElement("div");
-		  element.className = "varify";
+		  element.className = "varify_mpesa";
 		  document.body.appendChild(element);
 		  element.onclick = remove_buy;
 		  var element_2 = document.createElement("div");
@@ -129,11 +133,114 @@ function put_number(tx){
 		  var element_ = document.createElement("div");
 		  element_.style.marginTop = 5 + "%";
 		   element_3.appendChild(element_);
-		  element_.innerHTML = "Weka number ya simu"
+		  element_.innerHTML = "Weka number ya simu ya vodacom"
 		   var element_4 = document.createElement("div");
 		  element_4.className = "buy_msg";
 		  element_2.appendChild(element_4);
+		  var element_7 = document.createElement("div");
+		  element_4.appendChild(element_7);
+		  var element_8 = document.createElement("input");
+		  element_8.type = "text";
+		  element_8.id = "choice";
+		  element_8.style.backgroundColor = "#000";
+		  element_8.style.borderBottom ="#fff thin solid";
+		  element_8.style.color = "#fff";
+		  element_7.appendChild(element_8);
+		  var element_9 = document.createElement("div");
+		  element_9.className = "button-bar";
+		  element_4.appendChild(element_9);
+		  element_9_1 = document.createElement("a");
+		  element_9_1.className = "button";
+		  element_9_1.innerHTML = "katisha";
+		  element_9_1.onclick = remove_no;
+		  element_9_1.style.backgroundColor = "#000";
+		  element_9_1.style.color = "#fff";
+		  element_9_1.style.borderBottomStyle = "none";
+		  element_9_1.style.borderLeftStyle = "none";
+		  element_9_1.style.borderTopStyle = "none";
+		   element_9_1.style.borderRightStyle = "none";
+		  element_9.appendChild(element_9_1);
+		  element_10 = document.createElement("a");
+		  element_10.className = "button";
+		  element_10.innerHTML = "tuma";
+		  element_10.onclick = put_password;
+		  element_10.style.backgroundColor = "#000";
+		  element_10.style.color = "#fff";
+		  element_10.style.borderBottomStyle = "none";
+		  element_10.style.borderRightStyle = "none";
+		  element_10.style.borderTopStyle = "none";
+		  element_10.style.borderLeftStyle = "none";
+		  element_9.appendChild(element_10);
+		  
+		  
+			     }
 		return false;  
+	}
+function put_password(){
+	       remove_no();
+	      var element = document.createElement("div");
+		  element.className = "varify_mpesa";
+		  document.body.appendChild(element);
+		  element.onclick = remove_buy;
+		  var element_2 = document.createElement("div");
+		  element_2.className = "buy";
+		  document.body.appendChild(element_2);
+		  var element_3 = document.createElement("div");
+		  element_3.className = "buy_head";
+		  element_2.appendChild(element_3);
+		  var element_ = document.createElement("div");
+		  element_.style.marginTop = 5 + "%";
+		   element_3.appendChild(element_);
+		  element_.innerHTML = "Weka number ya siri"
+		   var element_4 = document.createElement("div");
+		  element_4.className = "buy_msg";
+		  element_2.appendChild(element_4);
+		  var element_7 = document.createElement("div");
+		  element_4.appendChild(element_7);
+		  var element_8 = document.createElement("input");
+		  element_8.type = "text";
+		  element_8.id = "choice";
+		  element_8.style.backgroundColor = "#000";
+		  element_8.style.borderBottom ="#fff thin solid";
+		  element_8.style.color = "#fff";
+		  element_7.appendChild(element_8);
+		  var element_9 = document.createElement("div");
+		  element_9.className = "button-bar";
+		  element_4.appendChild(element_9);
+		  element_9_1 = document.createElement("a");
+		  element_9_1.className = "button";
+		  element_9_1.innerHTML = "katisha";
+		  element_9_1.onclick = remove_password;
+		  element_9_1.style.backgroundColor = "#000";
+		  element_9_1.style.color = "#fff";
+		  element_9_1.style.borderBottomStyle = "none";
+		  element_9_1.style.borderLeftStyle = "none";
+		  element_9_1.style.borderTopStyle = "none";
+		   element_9_1.style.borderRightStyle = "none";
+		  element_9.appendChild(element_9_1);
+		  element_10 = document.createElement("a");
+		  element_10.className = "button";
+		  element_10.innerHTML = "tuma";
+		  element_10.onclick = put_password;
+		  element_10.style.backgroundColor = "#000";
+		  element_10.style.color = "#fff";
+		  element_10.style.borderBottomStyle = "none";
+		  element_10.style.borderRightStyle = "none";
+		  element_10.style.borderTopStyle = "none";
+		  element_10.style.borderLeftStyle = "none";
+		  element_9.appendChild(element_10);
+		  
+		  
+	}
+function remove_password(){
+	    
+	   document.body.removeChild(document.querySelector(".varify_mpesa"));
+	    document.body.removeChild(document.querySelector(".buy"));
+	}
+function remove_no(){
+	    
+	   document.body.removeChild(document.querySelector(".varify_mpesa"));
+	    document.body.removeChild(document.querySelector(".buy"));
 	}
 function remove_buy(){
 	    

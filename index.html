@@ -90,29 +90,33 @@ function Buy(){
 		  element_9_1 = document.createElement("a");
 		  element_9_1.className = "button";
 		  element_9_1.innerHTML = "cancel";
-		 // element_9_1.onclick = remove_buy;
+		  element_9_1.onclick = remove_buy;
 		  element_9_1.style.backgroundColor = "#000";
 		  element_9_1.style.color = "#fff";
 		  element_9_1.style.borderBottomStyle = "none";
 		  element_9_1.style.borderLeftStyle = "none";
 		  element_9_1.style.borderTopStyle = "none";
+		   element_9_1.style.borderRightStyle = "none";
 		  element_9.appendChild(element_9_1);
 		  element_10 = document.createElement("a");
 		  element_10.className = "button";
 		  element_10.innerHTML = "chagua";
+		  element_10.onclick = put_number;
 		  element_10.style.backgroundColor = "#000";
 		  element_10.style.color = "#fff";
 		  element_10.style.borderBottomStyle = "none";
 		  element_10.style.borderRightStyle = "none";
 		  element_10.style.borderTopStyle = "none";
-		 // element_10.onclick = put_number;
+		  element_10.style.borderLeftStyle = "none";
 		  element_9.appendChild(element_10);
 		  
 		  
 	       return false;
 		   
 	}
-function remove_buy(){
+
+function put_number(){
+	    alert();
 	}
 function remove_buy(){
 	    

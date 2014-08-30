@@ -487,8 +487,10 @@ function capturePhotoEdit() {
 function onPhotoDataSuccess(imageData){
 	var cameraPic = document.querySelector("#ava_img");
 	cameraPic.style.display = 'block';
-
+        window.img_ = imageData;
 	   cameraPic.src = "data:image/jpeg;base64," + imageData;
+	   alert(cameraPic.src);
+	   
 
 	}
 function onFail(message) {

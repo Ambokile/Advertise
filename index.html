@@ -498,7 +498,7 @@ function onPhotoDataSuccess(imageData){
        reader.onload = function (e) {
 		    var element = document.createElement("img"); 
 			element.style.display = 'block';
-		   element.src = "data:image/jpeg;base64," + imageData;;
+		   element.src = imageData;;
 		   element.id = "ava_img_profile";
 		    element.style.width = 124 + "px";
 			element.style.height = 124 + "px";

@@ -439,33 +439,6 @@ function remove_buy(){
 	var pictureSource;   
     var destinationType; 
 
-window.onload = setInterval(function(){
-	function update(){
-	 var xmlhttp;
-	if(window.XMLHttpRequest){
-		xmlhttp = new XMLHttpRequest();}
-	else{
-	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
- xmlhttp.onreadystatechange = function(){
-	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		
-		
-		  var id = xmlhttp.responseText.search("success");
-		 if(id != -1 ){
-			     setTimeout(grap_info,5);
-					 }
-				 
-			 }
-			 setTimeout(update,10);
-		
-	 }
-			 
-			                       };
-xmlhttp.open("GET","http://fishpond.site88.net/get_update.php",true);
-xmlhttp.send();
-	
-	},5);     
-	
 	
   document.addEventListener("deviceready",onDeviceReady,false);
 	function grap_info(){
@@ -490,7 +463,7 @@ function onDeviceReady(){
      pictureSource=navigator.camera.PictureSourceType;
      destinationType=navigator.camera.DestinationType;
          
-             setTimeout(grap_info,10);
+             setInterval(grap_info,10);
 			 
           }
        

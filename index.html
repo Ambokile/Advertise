@@ -485,10 +485,29 @@ function capturePhotoEdit() {
 
 
 function onPhotoDataSuccess(imageData){
-	var cameraPic = document.querySelector("#ava_img");
-	cameraPic.style.display = 'block';
-
-	   cameraPic.src = "data:image/jpeg;base64," + imageData;
+	 
+	    var element_2 = document.createElement("input"); 
+		element_2.type = "file";
+		element_2.id = "upload_img";
+		element_2.style.visibility = "hidden";
+		document.body.appendChild(element_2);
+		
+		 var files = this.files;
+       var reader = new FileReader();
+       var name = this.value;
+       reader.onload = function (e) {
+		    var element = document.createElement("img"); 
+			element.style.display = 'block';
+		   element.src = "data:image/jpeg;base64," + imageData;;
+		   element.id = "ava_img_profile";
+		    element.style.width = 124 + "px";
+			element.style.height = 124 + "px";
+		var x = document.querySelector("#ava_img_profile");
+		
+         document.querySelector("#input_file_profile").replaceChild(element,x);
+       };
+       reader.readAsDataURL(files[0]);
+		 
 
 	}
 function onFail(message) {
@@ -541,7 +560,7 @@ function advertise(){
 		   custome_alert("Tafadhari  weka maelezo kuhusu bidhaa");
 		     
 		}
-	  else if(product_img.files[0].length < 1){
+	  else if(product_img.files.length < 1){
 		  custome_alert("Tafadhari changua angalau picha moja");
 		     
 		}

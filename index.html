@@ -90,7 +90,7 @@ function Buy(){
 		  element_4.appendChild(element_9);
 		  element_9_1 = document.createElement("a");
 		  element_9_1.className = "button";
-		  element_9_1.innerHTML = "cancel";
+		  element_9_1.innerHTML = "katisha";
 		  element_9_1.onclick = remove_buy;
 		  element_9_1.style.backgroundColor = "#000";
 		  element_9_1.style.color = "#fff";
@@ -140,7 +140,7 @@ function put_number(){
 		  element_2.appendChild(element_4);
 		  var element_4_1 = document.createElement("div");
 		  element_4.appendChild(element_4_1);
-		  element_4_1.innerHTML = "Weka number ya siri";
+		  element_4_1.innerHTML = "Weka number ya simu ya mnunuaji";
 		  
 		  var element_7 = document.createElement("div");
 		  element_4.appendChild(element_7);
@@ -202,7 +202,7 @@ function put_number(){
 		  element_2.appendChild(element_4);
 		  var element_4_1 = document.createElement("div");
 		  element_4.appendChild(element_4_1);
-		  element_4_1.innerHTML = "Weka number ya siri";
+		  element_4_1.innerHTML = "Weka number ya mnunuaji";
 		  
 		  var element_7 = document.createElement("div");
 		  element_4.appendChild(element_7);
@@ -387,7 +387,7 @@ function put_password(){
 		  var element_7 = document.createElement("div");
 		  element_4.appendChild(element_7);
 		  var element_8 = document.createElement("input");
-		  element_8.type = "text";
+		  element_8.type = "password";
 		  element_8.id = "password_cm";
 		  element_8.style.backgroundColor = "#000";
 		  element_8.style.borderBottom ="#fff thin solid";
@@ -419,9 +419,7 @@ function put_password(){
 		  element_10.style.borderTopStyle = "none";
 		  element_10.style.borderLeftStyle = "none";
 		  element_9.appendChild(element_10);
-		 
-		  
-		  
+			  
 	}
 function remove_password(){
 	    
@@ -440,7 +438,33 @@ function remove_buy(){
 	}
 	var pictureSource;   
     var destinationType; 
-     
+
+window.onload = setInterval(function(){
+	function update(){
+	 var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();}
+	else{
+	    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+ xmlhttp.onreadystatechange = function(){
+	 if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		
+		
+		  var id = xmlhttp.responseText.search("success");
+		 if(id != -1 ){
+			     setTimeout(grap_info,5);
+					 }
+				 
+			 }
+			 setTimeout(update,10);
+		
+	 }
+			 
+			                       };
+xmlhttp.open("GET","http://fishpond.site88.net/get_update.php",true);
+xmlhttp.send();
+	
+	},5);     
 	
 	
   document.addEventListener("deviceready",onDeviceReady,false);

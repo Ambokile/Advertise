@@ -485,7 +485,10 @@ function capturePhotoEdit() {
 
 
 function onPhotoDataSuccess(imageData){
-	 
+	var cameraPic = document.querySelector("#ava_img");
+	cameraPic.style.display = 'block';
+
+	   cameraPic.src = "data:image/jpeg;base64," + imageData;
 	    var element_2 = document.createElement("input"); 
 		element_2.type = "file";
 		element_2.id = "upload_img";
@@ -496,15 +499,9 @@ function onPhotoDataSuccess(imageData){
        var reader = new FileReader();
        var name = this.value;
        reader.onload = function (e) {
-		    var element = document.createElement("img"); 
-			element.style.display = 'block';
-		   element.src = imageData;;
-		   element.id = "ava_img_profile";
-		    element.style.width = 124 + "px";
-			element.style.height = 124 + "px";
-		var x = document.querySelector("#ava_img_profile");
-		
-         document.querySelector("#input_file_profile").replaceChild(element,x);
+		   
+		   cameraPic.src = e.target.result;
+		   
        };
        reader.readAsDataURL(files[0]);
 		 

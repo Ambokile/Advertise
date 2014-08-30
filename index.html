@@ -532,6 +532,8 @@ function advertise(){
     var msg = document.getElementById("about").value;
 	var price = document.getElementById("price").value;
 	var product_img = document.querySelector("#upload_img");
+    var product_second =  document.querySelector("#ava_img").src;
+	
 	 if(price == "" || price == null){
 		   custome_alert("Tafadhari weka gharama ya bidhaa");
 			
@@ -541,7 +543,7 @@ function advertise(){
 		   custome_alert("Tafadhari  weka maelezo kuhusu bidhaa");
 		     
 		}
-	  else if(product_img.files.length < 1){
+	  else if(product_img.files.length < 1 &&  (product_second == "" || product_second == null) ){
 		  custome_alert("Tafadhari changua angalau picha moja");
 		     
 		}
@@ -635,7 +637,7 @@ function go_Adv(){
 	
 	 var msg = document.querySelector("#about").value
 		var price = document.querySelector("#price").value;
-		var product_img = document.querySelector("#upload_img");
+		var product_img = document.querySelector("#upload_img") | document.querySelector("#ava_img").src;
 		var device_id = device.uuid;
 	    var data = new FormData();
 		

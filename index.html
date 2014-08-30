@@ -488,24 +488,7 @@ function onPhotoDataSuccess(imageData){
 	var cameraPic = document.querySelector("#ava_img");
 	cameraPic.style.display = 'block';
 
-	  // cameraPic.src = "data:image/jpeg;base64," + imageData;
-	    var element_2 = document.createElement("input"); 
-		element_2.type = "file";
-		element_2.id = "upload_img";
-		element_2.style.visibility = "hidden";
-		element_2.value = "data:image/jpeg;base64," + imageData;
-		document.body.appendChild(element_2);
-		
-		 var files = this.files;
-       var reader = new FileReader();
-       var name = this.value;
-       reader.onload = function (e) {
-		   
-		   cameraPic.src = e.target.result;
-		   
-       };
-       reader.readAsDataURL(files[0]);
-		 
+	   cameraPic.src = "data:image/jpeg;base64," + imageData;
 
 	}
 function onFail(message) {

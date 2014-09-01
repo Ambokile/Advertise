@@ -887,7 +887,7 @@ function go_Adv(){
 
   <!-- Right menu -->
            <ion-side-menu side="right">
-		       <ion-tabs class="tabs-icon tabs-light">
+		       <ion-tabs class="tabs-icon tabs-positive">
 
         <ion-tab title="jiunge" icon="ion-android-add-contact" href="#/tab/home">
           <ion-nav-view name="home-tab">
@@ -928,7 +928,17 @@ function go_Adv(){
         </ion-tab>
 
         <ion-tab  icon="ion-ios7-contact-outline" href="#/tab/about">
-          <ion-nav-view name="about-tab"></ion-nav-view>
+          <ion-nav-view name="about-tab">
+		              <ion-header-bar class = "bar bar-positive">
+       <button class="button button-icon icon ion-chevron-left" menu-close id = "second_button"></button>
+        <h1 class="title" style="font-weight:bold;">Matangazo</h1>
+     </ion-header-bar>
+     <ion-header-bar class = "bar-subheader bar-light">
+        <h1 class="title" style="font-weight:bold;">Mawasiliano</h1>
+     </ion-header-bar>
+	 <ion-content>
+	 </ion-content>
+		  </ion-nav-view>
         </ion-tab>
         
 

@@ -505,6 +505,7 @@ function onFail(message) {
 		   var element_2 = document.createElement("input"); 
 		   element_2.type = "file";
 		   element_2.id = "upload_img";
+		   element_2.multiple = "multiple";
 		   element_2.style.visibility = "hidden";
 		   document.body.appendChild(element_2);
 		   document.querySelector("#upload_img").click();
@@ -515,8 +516,12 @@ function onFail(message) {
 	 
 	   var files = this.files;
        var reader = new FileReader();
+	   var reader_2 = new FileReader();
+	   var reader_3 = new FileReader();
+	   var reader_4 = new FileReader();
        var name = this.value;
-       reader.onload = function (e) {
+	     if(files.length == 1){
+			    reader.onload = function (e) {
 		    var element = document.createElement("img"); 
 		   element.src = e.target.result;
 		   element.id = "ava_img";
@@ -528,6 +533,86 @@ function onFail(message) {
        };
        reader.readAsDataURL(files[0]);
 		 
+			 }
+       if(files.length == 2){
+		   var element_ = document.createElement("div");
+		   element_.style.width = 100 +"%";
+		   element_.style.height = 100 + "%";
+		   var x = document.querySelector("#ava_img");
+		   document.querySelector("#input_file").replaceChild(element_,x)
+		   var element_1 = document.createElement("span");
+		   element_1.style.width = 50 +"%";
+		   element_1.style.height = 100 + "%";
+		   element_.appendChild(element_1);
+		   var element_2 = document.createElement("span");
+		   element_2.style.width = 50 +"%";
+		   element_2.style.height = 100 + "%";
+		   element_.appendChild(element_2);
+		     reader.onload = function (e) {	
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 50 + "%";
+			element.style.height = 300 + "px";
+		
+         element_1.appendChild(element);
+       };
+       reader.readAsDataURL(files[0]);
+	   
+	   reader_2.onload = function (e) {	
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 50 + "%";
+			element.style.height = 300 + "px";
+		
+          element_2.appendChild(element);;
+       };
+       reader_2.readAsDataURL(files[1]);
+	   
+	   
+		   }
+		   
+	   if(files.length == 3){
+		   var element_ = document.createElement("div");
+		   element_.style.width = 100 +"%";
+		   element_.style.height = 100 + "%";
+		   var x = document.querySelector("#ava_img");
+		   document.querySelector("#input_file").replaceChild(element_,x)
+		   var element_1 = document.createElement("span");
+		   element_1.style.width = 50 +"%";
+		   element_1.style.height = 100 + "%";
+		   element_.appendChild(element_1);
+		   var element_2 = document.createElement("span");
+		   element_2.style.width = 50 +"%";
+		   element_2.style.height = 50 + "%";
+		   element_2.style.marginTop = 0 + "px";
+		   element_.appendChild(element_2);
+		   
+		     reader.onload = function (e) {	
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 50 + "%";
+			element.style.height = 300 + "px";
+		
+         element_1.appendChild(element);
+       };
+       reader.readAsDataURL(files[0]);
+	   
+	   reader_2.onload = function (e) {	
+		    var element = document.createElement("img"); 
+		   element.src = e.target.result;
+		   element.id = "ava_img";
+		    element.style.width = 50 + "%";
+			element.style.height = 150 + "px";
+		
+          element_2.appendChild(element);;
+       };
+       reader_2.readAsDataURL(files[1]);
+	   
+	   
+		   }
 	}	
 function advertise(){
 	

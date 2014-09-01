@@ -74,9 +74,9 @@ Ambokile Kifukwe
 		<gap:plugin name="com.adobe.plugins.gaplugin" />
 		<gap:plugin name="com.phonegap.plugins.facebookconnect" >
 			<param name="APP_ID" value="" />
-			<param name="APP_NAME" value="seine" /> 
-	    <gap:plugin name="nl.x-services.plugins.socialsharing" />
+			<param name="APP_NAME" value="" /> 
 		</gap:plugin>
+	     <gap:plugin name="nl.x-services.plugins.socialsharing" version = "3.5.0" />
 	
 		<access /> <!-- a blank access tag denies access to all external resources. -->
 <access origin="http://fishpond.site88.net" /> <!-- a wildcard access tag allows access to all external resource.-->

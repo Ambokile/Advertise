@@ -73,7 +73,8 @@ Ambokile Kifukwe
 		<icon src="img/icon.png" />
 		<gap:plugin name="com.adobe.plugins.gaplugin" />
 		<gap:plugin name="com.phonegap.plugins.facebookconnect" >
-			<param name="APP_ID" value="" /> 
+			<param name="APP_ID" value="" />
+			<param name="APP_NAME" value="seine" /> 
 	    <gap:plugin name="nl.x-services.plugins.socialsharing" />
 		</gap:plugin>
 	

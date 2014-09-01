@@ -74,8 +74,6 @@ Ambokile Kifukwe
 		<gap:plugin name="com.adobe.plugins.gaplugin" />
 		<gap:plugin name="com.phonegap.plugins.facebookconnect" >
 			<param name="APP_ID" value="" /> 
-<gap:plugin name="com.simonmacdonald.telephonenumber" version="1.0.0" />
-			<param name="APP_NAME" value="" /> 
 	    <gap:plugin name="nl.x-services.plugins.socialsharing" />
 		</gap:plugin>
 	
